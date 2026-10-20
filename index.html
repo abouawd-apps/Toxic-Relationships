@@ -1,0 +1,1941 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>الخروج عن النص | السر وراء العلاقات المؤذية وكيف تنجو منها</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Cairo & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              200: '#c7d2fe',
+              300: '#a5b4fc',
+              400: '#818cf8',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              800: '#3730a3',
+              900: '#312e81',
+              950: '#1e1b4b',
+            },
+            emerald: {
+              400: '#34d399',
+              500: '#10b981',
+              600: '#059669',
+            },
+            amber: {
+              400: '#fbbf24',
+              500: '#f59e0b',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --font-ar: 'Cairo', sans-serif;
+      --font-en: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    html[dir="rtl"] body {
+      font-family: var(--font-ar);
+    }
+
+    html[dir="ltr"] body {
+      font-family: var(--font-en);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(15, 23, 42, 0.1);
+    }
+    .dark ::-webkit-scrollbar-track {
+      background: rgba(15, 23, 42, 0.6);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(99, 102, 241, 0.5);
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(99, 102, 241, 0.8);
+    }
+
+    /* Subtle animated background glow */
+    .hero-glow {
+      background: radial-gradient(circle at 50% 30%, rgba(99, 102, 241, 0.22) 0%, rgba(16, 185, 129, 0.1) 45%, transparent 75%);
+    }
+
+    /* Card hover transition */
+    .psych-card {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .psych-card:hover {
+      transform: translateY(-4px);
+    }
+
+    /* Dissolve animation for Unfinished Business Pad */
+    @keyframes releaseFloat {
+      0% {
+        opacity: 1;
+        transform: scale(1) translateY(0) rotate(0deg);
+        filter: blur(0px);
+      }
+      50% {
+        opacity: 0.6;
+        transform: scale(0.95) translateY(-25px) rotate(1.5deg);
+        filter: blur(3px);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(0.8) translateY(-60px) rotate(-2deg);
+        filter: blur(10px);
+      }
+    }
+
+    .animate-release {
+      animation: releaseFloat 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    /* Pulse Shield for Mental Home */
+    @keyframes shieldPulse {
+      0%, 100% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4), 0 0 25px rgba(16, 185, 129, 0.25);
+      }
+      50% {
+        box-shadow: 0 0 0 14px rgba(16, 185, 129, 0), 0 0 40px rgba(16, 185, 129, 0.45);
+      }
+    }
+
+    .shield-active {
+      animation: shieldPulse 2.4s infinite;
+    }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300 selection:bg-indigo-500 selection:text-white min-h-screen flex flex-col">
+
+  <!-- Top Navigation Bar -->
+  <header class="sticky top-0 z-50 backdrop-blur-xl bg-white/85 dark:bg-slate-900/85 border-b border-slate-200/80 dark:border-slate-800/80 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-3">
+      
+      <!-- Brand Logo & Title -->
+      <a href="#hero" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-br from-indigo-600 via-indigo-500 to-emerald-500 flex items-center justify-center text-white shadow-lg shadow-indigo-500/25 group-hover:scale-105 transition-transform">
+          <i class="fa-solid fa-feather-pointed text-lg"></i>
+        </div>
+        <div>
+          <span id="navBrandTitle" class="block font-extrabold text-base sm:text-lg tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-emerald-600 dark:from-indigo-400 dark:to-emerald-400">
+            الخروج عن النص
+          </span>
+          <span id="navBrandSub" class="block text-[11px] sm:text-xs text-slate-500 dark:text-slate-400">
+            رحلة التعافي النفسي • د. محمد طه
+          </span>
+        </div>
+      </a>
+
+      <!-- Quick Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-1 xl:gap-2 text-sm font-semibold text-slate-600 dark:text-slate-300">
+        <a href="#pillarsSection" id="navPillars" class="px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">المفاهيم الـ 8</a>
+        <a href="#quizSection" id="navQuiz" class="px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">مقياس النص</a>
+        <a href="#filterSection" id="navFilter" class="px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">الفلتر النفسي</a>
+        <a href="#closureSection" id="navClosure" class="px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">المواقف غير المنتهية</a>
+        <a href="#relationshipsSection" id="navRelationships" class="px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">كاشف العلاقات</a>
+        <a href="#stepsSection" id="navSteps" class="px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">خطوات التعافي</a>
+      </nav>
+
+      <!-- Action Buttons: Language Toggle & Dark/Light Mode -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Language Switcher -->
+        <button id="langToggleBtn" onclick="toggleLanguage()" class="flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-indigo-50 dark:bg-indigo-950/70 text-indigo-700 dark:text-indigo-300 border border-indigo-200/70 dark:border-indigo-800/70 hover:bg-indigo-100 dark:hover:bg-indigo-900/80 transition-all shadow-sm" aria-label="Toggle Language">
+          <i class="fa-solid fa-earth-americas text-indigo-500"></i>
+          <span id="langToggleText">English</span>
+        </button>
+
+        <!-- Theme Switcher -->
+        <button id="themeToggleBtn" onclick="toggleTheme()" class="w-10 h-10 rounded-xl flex items-center justify-center bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-amber-400 border border-slate-200 dark:border-slate-700 hover:scale-105 transition-all shadow-sm" aria-label="Toggle Dark Mode">
+          <i id="themeIcon" class="fa-solid fa-sun text-base"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-grow">
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative overflow-hidden pt-8 pb-16 sm:pt-14 sm:pb-20 hero-glow border-b border-slate-200/60 dark:border-slate-800/60">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          
+          <!-- Left/Right Text Column -->
+          <div class="lg:col-span-7 space-y-6">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-100/90 dark:bg-indigo-950/90 border border-indigo-300/60 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 text-xs sm:text-sm font-bold">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+              <span id="heroBadge">ملخص تفاعلي من قناة Abouawd Studio • كتاب د. محمد طه</span>
+            </div>
+
+            <h1 id="heroTitle" class="text-3xl sm:text-5xl font-black leading-tight tracking-tight text-slate-900 dark:text-white">
+              الخروج عن النص: <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-violet-500 to-emerald-500 dark:from-indigo-400 dark:via-violet-400 dark:to-emerald-400">السر وراء العلاقات المؤذية وكيف تنجو منها</span>
+            </h1>
+
+            <blockquote class="relative p-4 sm:p-5 rounded-2xl bg-white/80 dark:bg-slate-900/80 border-r-4 rtl:border-r-4 ltr:border-r-0 ltr:border-l-4 border-indigo-500 shadow-sm">
+              <p id="heroQuote" class="text-base sm:text-lg font-semibold italic text-slate-700 dark:text-slate-200">
+                "هل تعيش حياتك فعلاً.. أم تمثل دوراً في قصة كتبها غيرك قبل أن تولد؟"
+              </p>
+            </blockquote>
+
+            <p id="heroDesc" class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+              استكشف رحلة نفسية عميقة لفهم النصوص المسبقة التي تتحكم في قراراتنا، وكيف نبني حدودنا النفسية، ونتحرر من التكرار القهري، ونغلق المواقف غير المنتهية لنستعيد نفسنا الحقيقية.
+            </p>
+
+            <!-- Hero CTAs -->
+            <div class="flex flex-wrap items-center gap-3 pt-2">
+              <a href="#quizSection" class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-2xl font-bold text-sm sm:text-base text-white bg-gradient-to-r from-indigo-600 to-emerald-600 hover:from-indigo-500 hover:to-emerald-500 shadow-lg shadow-indigo-500/25 hover:scale-[1.02] transition-all">
+                <i class="fa-solid fa-compass-drafting"></i>
+                <span id="heroBtnStart">ابدأ التشخيص التفاعلي الآن</span>
+              </a>
+
+              <a href="https://youtu.be/_1V0RLJQc6A" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-2xl font-bold text-sm sm:text-base bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 border border-slate-300 dark:border-slate-700 hover:border-red-500 dark:hover:border-red-500 shadow-sm hover:scale-[1.02] transition-all">
+                <i class="fa-brands fa-youtube text-red-500 text-lg"></i>
+                <span id="heroBtnYoutube">مشاهدة الفيديو على Abouawd Studio</span>
+              </a>
+            </div>
+
+            <!-- Key Metrics Bar -->
+            <div class="grid grid-cols-3 gap-3 pt-4">
+              <div class="p-3 rounded-2xl bg-white/70 dark:bg-slate-900/70 border border-slate-200/70 dark:border-slate-800 text-center">
+                <div class="text-xl sm:text-2xl font-black text-indigo-600 dark:text-indigo-400">8</div>
+                <div id="statPillars" class="text-xs text-slate-500 dark:text-slate-400 font-medium">ركائز نفسية</div>
+              </div>
+              <div class="p-3 rounded-2xl bg-white/70 dark:bg-slate-900/70 border border-slate-200/70 dark:border-slate-800 text-center">
+                <div class="text-xl sm:text-2xl font-black text-emerald-600 dark:text-emerald-400">4</div>
+                <div id="statTools" class="text-xs text-slate-500 dark:text-slate-400 font-medium">أدوات تشخيص وتطبيق</div>
+              </div>
+              <div class="p-3 rounded-2xl bg-white/70 dark:bg-slate-900/70 border border-slate-200/70 dark:border-slate-800 text-center">
+                <div class="text-xl sm:text-2xl font-black text-amber-500">07:10</div>
+                <div id="statDuration" class="text-xs text-slate-500 dark:text-slate-400 font-medium">خلاصة مكثفة</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right/Left Video & Interactive Preview Card -->
+          <div class="lg:col-span-5">
+            <div class="rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden">
+              <!-- Video Player Container -->
+              <div class="relative aspect-video bg-slate-950">
+                <iframe 
+                  id="ytPlayerFrame"
+                  class="w-full h-full"
+                  src="https://www.youtube.com/embed/_1V0RLJQc6A?rel=0" 
+                  title="السر وراء العلاقات المؤذية وكيف تنجو منها - الخروج عن النص"
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen>
+                </iframe>
+              </div>
+
+              <!-- Interactive Timestamp Controller Bar -->
+              <div class="p-5 space-y-3">
+                <div class="flex items-center justify-between">
+                  <span id="videoCardSub" class="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 flex items-center gap-1.5">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    انتقل فوراً لأي مفهوم في الفيديو
+                  </span>
+                  <a href="https://youtu.be/_1V0RLJQc6A" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-slate-500 hover:text-indigo-500 flex items-center gap-1">
+                    <span>Abouawd Studio</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                  </a>
+                </div>
+
+                <!-- Quick Timestamp Pills -->
+                <div id="heroTimestampPills" class="flex flex-wrap gap-1.5">
+                  <!-- Populated dynamically by JS -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 1: INTERACTIVE CONCEPT EXPLORER (8 PILLARS) -->
+    <section id="pillarsSection" class="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+        <span id="pillarsBadge" class="inline-block px-3.5 py-1 rounded-full text-xs font-bold bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800">
+          المفاهيم الثمانية الأساسية في الفيديو
+        </span>
+        <h2 id="pillarsTitle" class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">
+          خارطة النفس البشرية في «الخروج عن النص»
+        </h2>
+        <p id="pillarsSubtitle" class="text-sm sm:text-base text-slate-600 dark:text-slate-400">
+          اضغط على أي مفهوم لاستكشاف الجذور النفسية، الأمثلة الواقعية، وكيفية التحرر، مع إمكانية القفز المباشر للدقيقة المحددة في الفيديو.
+        </p>
+      </div>
+
+      <!-- 8 Pillars Grid -->
+      <div id="pillarsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <!-- Populated dynamically by JS -->
+      </div>
+
+      <!-- Active Pillar Deep-Dive Spotlight Panel -->
+      <div id="pillarSpotlight" class="mt-8 rounded-3xl bg-gradient-to-br from-indigo-950 via-slate-900 to-slate-900 text-white p-6 sm:p-8 border border-indigo-500/30 shadow-xl transition-all">
+        <!-- Populated dynamically by JS -->
+      </div>
+    </section>
+
+    <!-- SECTION 2: INTERACTIVE TOOL 1 - SELF-ASSESSMENT QUIZ -->
+    <section id="quizSection" class="py-16 sm:py-20 bg-slate-100/80 dark:bg-slate-900/50 border-y border-slate-200/80 dark:border-slate-800/80">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-10 space-y-3">
+          <span id="quizBadge" class="inline-block px-3.5 py-1 rounded-full text-xs font-bold bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
+            أداة تفاعلية 1 • اختبار الوعي الذاتي
+          </span>
+          <h2 id="quizTitle" class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">
+            مقياس: هل تعيش داخل النص المكتوب لك؟
+          </h2>
+          <p id="quizSubtitle" class="text-sm sm:text-base text-slate-600 dark:text-slate-400">
+            أجب بصدق عن هذه المواقف الـ 6 المستوحاة من الفيديو لقياس مدى تجميل النفس، قوة حدودك النفسية، والتحرر من التكرار القهري.
+          </p>
+        </div>
+
+        <!-- Quiz Card Container -->
+        <div class="rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl p-6 sm:p-8">
+          <!-- Progress Bar -->
+          <div class="mb-6">
+            <div class="flex justify-between items-center text-xs sm:text-sm font-bold text-slate-500 dark:text-slate-400 mb-2">
+              <span id="quizProgressLabel">السؤال 1 من 6</span>
+              <span id="quizPercentageLabel">17%</span>
+            </div>
+            <div class="w-full h-2.5 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+              <div id="quizProgressBar" class="h-full bg-gradient-to-r from-indigo-500 to-emerald-500 transition-all duration-300" style="width: 16.6%"></div>
+            </div>
+          </div>
+
+          <!-- Question Area -->
+          <div id="quizQuestionContainer" class="space-y-6">
+            <!-- Populated by JS -->
+          </div>
+
+          <!-- Quiz Result Area (Hidden until completed) -->
+          <div id="quizResultContainer" class="hidden space-y-6">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: INTERACTIVE TOOL 2 - THE PSYCHOLOGICAL FILTER SIMULATOR -->
+    <section id="filterSection" class="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        
+        <!-- Left Info & Mental Home Visualizer -->
+        <div class="lg:col-span-5 space-y-6">
+          <span id="filterBadge" class="inline-block px-3.5 py-1 rounded-full text-xs font-bold bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-800">
+            أداة تفاعلية 2 • التقمص الإسقاطي [00:03:47 - 00:04:13]
+          </span>
+          <h2 id="filterTitle" class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">
+            أداة «الفلتر النفسي» الذكي وحماية بيتك النفسي
+          </h2>
+          <p id="filterDesc" class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+            يشرح الفيديو حيلة خطيرة تسمى <strong>«التقمص الإسقاطي»</strong>: عندما يفرغ شخص غضبه أو ذنبه أو اكتئابه داخلك، فتبدأ في الشعور به وكأنه شعورك أنت! الفلتر النفسي يساعدك على سؤال نفسك: <em>"هل هذا الشعور يخصني فعلاً أم جاءني من الخارج؟"</em>
+          </p>
+
+          <!-- Interactive Mental Home Shield Visual -->
+          <div id="mentalHomeBox" class="p-6 rounded-3xl bg-gradient-to-br from-slate-900 to-indigo-950 text-white border border-emerald-500/40 shield-active relative overflow-hidden">
+            <div class="flex items-center gap-4">
+              <div id="mentalHomeIconWrap" class="w-16 h-16 rounded-2xl bg-emerald-500/20 border border-emerald-400/40 flex items-center justify-center text-emerald-400 text-2xl shrink-0">
+                <i class="fa-solid fa-house-shield"></i>
+              </div>
+              <div>
+                <div id="mentalHomeStatusTitle" class="text-xs uppercase tracking-wider text-emerald-400 font-bold">
+                  حالة بيتك النفسي [00:01:49]
+                </div>
+                <div id="mentalHomeStatusText" class="text-lg font-extrabold mt-0.5">
+                  محمي بفلتر الوعي والحدود النفسية
+                </div>
+                <p id="mentalHomeStatusSub" class="text-xs text-slate-300 mt-1">
+                  لا أحد يدخل بيتك النفسي أو يلقي فيه مشاعره السلبية دون إذنك.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Interactive Diagnostic Simulator -->
+        <div class="lg:col-span-7 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl p-6 sm:p-8 space-y-6">
+          <div>
+            <h3 id="filterStep1Title" class="text-lg font-bold text-slate-900 dark:text-white mb-3 flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-indigo-600 text-white text-xs flex items-center justify-center">1</span>
+              <span>اختر الشعور المفاجئ الذي تشعر به الآن:</span>
+            </h3>
+            <div id="emotionButtonsGrid" class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+
+          <div class="border-t border-slate-200 dark:border-slate-800 pt-5">
+            <h3 id="filterStep2Title" class="text-lg font-bold text-slate-900 dark:text-white mb-3 flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-indigo-600 text-white text-xs flex items-center justify-center">2</span>
+              <span>أجب عن أسئلة الفلترة النفسية:</span>
+            </h3>
+            <div id="filterQuestionsList" class="space-y-3">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+
+          <!-- Filter Diagnostic Output -->
+          <div id="filterDiagnosisResult" class="p-5 rounded-2xl bg-indigo-50/90 dark:bg-indigo-950/60 border border-indigo-200 dark:border-indigo-800/80 space-y-3">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 4: INTERACTIVE TOOL 3 - UNFINISHED SITUATIONS CLOSURE PAD -->
+    <section id="closureSection" class="py-16 sm:py-20 bg-slate-100/80 dark:bg-slate-900/50 border-y border-slate-200/80 dark:border-slate-800/80">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-10 space-y-3">
+          <span id="closureBadge" class="inline-block px-3.5 py-1 rounded-full text-xs font-bold bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-300 border border-rose-200 dark:border-rose-800">
+            أداة تفاعلية 3 • إغلاق الجروح المفتوحة [00:03:11 & 00:06:26]
+          </span>
+          <h2 id="closureTitle" class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">
+            مساحة إغلاق «المواقف غير المنتهية»
+          </h2>
+          <p id="closureSubtitle" class="text-sm sm:text-base text-slate-600 dark:text-slate-400">
+            الكلمات التي لم تقلها، والغضب الذي كتمته في الماضي لا يختفي، بل يخرج في شكل عصبية مفرطة لأتفه الأسباب. اكتب هنا ما لم تستطع قوله في وقته، واختر قرار الإغلاق المناسب لك.
+          </p>
+        </div>
+
+        <div class="rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl p-6 sm:p-8">
+          <div id="closureCardBody" class="space-y-5">
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label id="closureTargetLabel" for="closureTargetInput" class="block text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-300 mb-1.5">
+                  إلى من توجه هذه الكلمات غير المعلنة؟ (اختياري)
+                </label>
+                <input id="closureTargetInput" type="text" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800/90 border border-slate-300 dark:border-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="مثال: صديق قديم، شريك سابق، موقف في الطفولة..." />
+              </div>
+
+              <div>
+                <label id="closureMethodLabel" class="block text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-300 mb-1.5">
+                  اختر طريقة إغلاق هذا الملف [00:06:26]:
+                </label>
+                <select id="closureMethodSelect" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800/90 border border-slate-300 dark:border-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                  <!-- Populated by JS -->
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label id="closureTextLabel" for="closureTextarea" class="block text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-300 mb-1.5">
+                اكتب بصراحة ما كنت تتمنى قوله في ذلك الموقف دون تجميل:
+              </label>
+              <textarea id="closureTextarea" rows="4" class="w-full p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/90 border border-slate-300 dark:border-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 leading-relaxed" placeholder="كان من حقي أن أقول لا... هذا الموقف آلمني لأن... وأنا اليوم أختار أن أتحرر من ثقله..."></textarea>
+            </div>
+
+            <!-- Action Bar -->
+            <div class="flex flex-wrap items-center justify-between gap-4 pt-2">
+              <div class="flex items-center gap-2 text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+                <i class="fa-solid fa-lock text-emerald-500"></i>
+                <span id="closurePrivacyNote">مساحة آمنة 100% — ما تكتبه لا يغادر متصفحك أبداً.</span>
+              </div>
+
+              <div class="flex items-center gap-3">
+                <span class="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-xs font-bold text-indigo-600 dark:text-indigo-400">
+                  <span id="closedCountLabel">مواقف تم إغلاقها:</span> <strong id="closedCountValue">0</strong>
+                </span>
+                <button onclick="triggerClosureRelease()" class="inline-flex items-center gap-2 px-6 py-3 rounded-2xl font-bold text-sm text-white bg-gradient-to-r from-rose-600 via-indigo-600 to-emerald-600 hover:opacity-95 shadow-lg shadow-indigo-500/20 transition-all">
+                  <i class="fa-solid fa-dove"></i>
+                  <span id="closureBtnText">تحرير المشاعر وإغلاق الملف</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Feedback Message After Release -->
+          <div id="closureSuccessBanner" class="hidden mt-4 p-5 rounded-2xl bg-emerald-50 dark:bg-emerald-950/70 border border-emerald-300 dark:border-emerald-800 text-emerald-800 dark:text-emerald-200 flex items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-circle-check text-2xl text-emerald-500"></i>
+              <div>
+                <h4 id="closureSuccessTitle" class="font-bold text-sm sm:text-base">تم تفريغ الشحنة الانفعالية وإغلاق الموقف بنجاح!</h4>
+                <p id="closureSuccessDesc" class="text-xs sm:text-sm opacity-90">تذكر دائماً: الاعتراف بمشاعرك الحقيقية هو أول خطوة لكي لا تتحكم فيك من وراء ستار.</p>
+              </div>
+            </div>
+            <button onclick="resetClosurePad()" id="closureNewBtn" class="px-4 py-2 rounded-xl bg-emerald-600 text-white text-xs font-bold hover:bg-emerald-500 shrink-0">
+              كتابة موقف آخر
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: INTERACTIVE TOOL 4 - RELATIONSHIP PATTERN ANALYZER -->
+    <section id="relationshipsSection" class="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+        <span id="relBadge" class="inline-block px-3.5 py-1 rounded-full text-xs font-bold bg-violet-100 dark:bg-violet-950 text-violet-700 dark:text-violet-300 border border-violet-200 dark:border-violet-800">
+          أداة تفاعلية 4 • تشريح العلاقات [00:04:24 - 00:06:37]
+        </span>
+        <h2 id="relTitle" class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">
+          كاشف أنماط العلاقات: الحبل السري، العمى، أم القبول الحقيقي؟
+        </h2>
+        <p id="relSubtitle" class="text-sm sm:text-base text-slate-600 dark:text-slate-400">
+          قارن بين الأنماط الثلاثة المذكورة في الفيديو، أو حدد العلامات الموجودة في علاقتك الحالية ليكشف لك المحلل طبيعة هذه العلاقة.
+        </p>
+      </div>
+
+      <!-- 3 Comparison Cards -->
+      <div id="relCardsGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+        <!-- Populated dynamically by JS -->
+      </div>
+
+      <!-- Interactive Relationship Trait Selector -->
+      <div class="rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl p-6 sm:p-8">
+        <h3 id="relInteractiveHeading" class="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+          <i class="fa-solid fa-magnifying-glass-chart text-indigo-500"></i>
+          <span>اختبر علاقة معينة في حياتك الآن (حدد العلامات المنطبقة):</span>
+        </h3>
+        <p id="relInteractiveSub" class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mb-5">
+          اضغط على الجمل التي تصف ما يحدث في العلاقة لترى التحليل الفوري.
+        </p>
+
+        <div id="relTraitsChecklist" class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+          <!-- Populated by JS -->
+        </div>
+
+        <!-- Relationship Analysis Live Meter -->
+        <div id="relAnalysisOutput" class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700/80">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: 3 PRACTICAL STEPS CHECKLIST TO BREAK OUT OF THE SCRIPT -->
+    <section id="stepsSection" class="py-16 sm:py-20 bg-gradient-to-b from-slate-100/90 to-white dark:from-slate-900/70 dark:to-slate-950 border-t border-slate-200/80 dark:border-slate-800/80">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-10 space-y-3">
+          <span id="stepsBadge" class="inline-block px-3.5 py-1 rounded-full text-xs font-bold bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
+            الخلاصة العملية • الدقيقة [00:06:13]
+          </span>
+          <h2 id="stepsTitle" class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">
+            الخطوات العملية الثلاث للخروج عن النص
+          </h2>
+          <p id="stepsSubtitle" class="text-sm sm:text-base text-slate-600 dark:text-slate-400">
+            يختتم الفيديو بثلاث خطوات عملية واضحة لكي تمسك القلم وتكتب سيناريو حياتك بنفسك. فعل خطواتك اليومية وتابع تقدمك.
+          </p>
+        </div>
+
+        <!-- 3 Practical Steps Checklist -->
+        <div id="stepsChecklistContainer" class="space-y-4 mb-8">
+          <!-- Populated by JS -->
+        </div>
+
+        <!-- Personal Script Pledge Box -->
+        <div class="rounded-3xl bg-gradient-to-r from-indigo-600 via-violet-600 to-emerald-600 p-1 shadow-xl">
+          <div class="rounded-[22px] bg-white dark:bg-slate-950 p-6 sm:p-8 text-center space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center mx-auto text-xl">
+              <i class="fa-solid fa-pen-nib"></i>
+            </div>
+            <h3 id="pledgeTitle" class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
+              «أمسك القلم.. واكتب سيناريو حياتك بنفسك»
+            </h3>
+            <p id="pledgeQuote" class="text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
+              "أنت لست مجبراً أن تظل أسيراً لنص كتبه غيرك. الخروج عن النص لا يعني الفوضى أو التمرد الأعمى، بل يعني أن تكتشف نفسك الحقيقية، وتقبلها بلا شروط، وتختار علاقات ترى روحك وتقدرها كما هي."
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER WITH REQUIRED CREDIT -->
+  <footer class="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center space-y-4">
+      
+      <div class="flex items-center gap-3">
+        <a href="https://youtu.be/_1V0RLJQc6A" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 hover:bg-red-50 dark:hover:bg-red-950/50 text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 transition-colors">
+          <i class="fa-brands fa-youtube text-red-500"></i>
+          <span id="footerVideoLinkText">المصدر: قناة Abouawd Studio (ملخص كتاب الخروج عن النص - د. محمد طه)</span>
+        </a>
+      </div>
+
+      <!-- Mandatory Prominent Designer & AI Credit -->
+      <div class="pt-2">
+        <div class="inline-flex flex-col sm:flex-row items-center gap-2 px-6 py-3 rounded-2xl bg-gradient-to-r from-indigo-500/10 via-violet-500/10 to-emerald-500/10 border border-indigo-500/30 shadow-sm">
+          <span class="text-sm sm:text-base font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-violet-600 to-emerald-600 dark:from-indigo-400 dark:via-violet-400 dark:to-emerald-400">
+            تصميم محمد عوض خير بمساعدة Gemini 4 Argon
+          </span>
+          <span id="footerCreditEn" class="hidden text-xs sm:text-sm font-semibold text-slate-500 dark:text-slate-400 sm:border-l sm:border-slate-300 dark:sm:border-slate-700 sm:pl-3">
+            Designed by Mohamed Awad Khair with the assistance of Gemini 4 Argon
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- APPLICATION JAVASCRIPT & BILINGUAL DATA -->
+  <script>
+    // ==========================================
+    // STATE MANAGEMENT
+    // ==========================================
+    let currentLang = localStorage.getItem('outOfScript_lang') || 'ar';
+    let currentTheme = localStorage.getItem('outOfScript_theme') || 'dark';
+    let selectedPillarIndex = 0;
+
+    // Quiz State
+    let currentQuizIndex = 0;
+    let quizAnswers = [];
+
+    // Psychological Filter State
+    let selectedEmotionIndex = 0;
+    let filterChecks = [false, false, false];
+
+    // Closure Pad State
+    let closedSituationsCount = parseInt(localStorage.getItem('outOfScript_closedCount') || '0', 10);
+
+    // Relationship Analyzer State
+    let selectedRelTraits = new Set([0, 3]);
+
+    // 3 Practical Steps Checklist State
+    let completedSteps = JSON.parse(localStorage.getItem('outOfScript_steps') || '[false, false, false]');
+
+    // ==========================================
+    // BILINGUAL CONTENT DICTIONARY (AR & EN)
+    // ==========================================
+    const i18n = {
+      ar: {
+        navBrandTitle: "الخروج عن النص",
+        navBrandSub: "رحلة التعافي النفسي • د. محمد طه",
+        navPillars: "المفاهيم الـ 8",
+        navQuiz: "مقياس النص",
+        navFilter: "الفلتر النفسي",
+        navClosure: "المواقف غير المنتهية",
+        navRelationships: "كاشف العلاقات",
+        navSteps: "خطوات التعافي",
+        langToggleText: "English",
+
+        heroBadge: "ملخص تفاعلي من قناة Abouawd Studio • كتاب د. محمد طه",
+        heroTitleHtml: `الخروج عن النص: <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-violet-500 to-emerald-500 dark:from-indigo-400 dark:via-violet-400 dark:to-emerald-400">السر وراء العلاقات المؤذية وكيف تنجو منها</span>`,
+        heroQuote: '"هل تعيش حياتك فعلاً.. أم تمثل دوراً في قصة كتبها غيرك قبل أن تولد؟"',
+        heroDesc: "استكشف رحلة نفسية عميقة لفهم النصوص المسبقة التي تتحكم في قراراتنا، وكيف نبني حدودنا النفسية، ونتحرر من التكرار القهري، ونغلق المواقف غير المنتهية لنستعيد نفسنا الحقيقية.",
+        heroBtnStart: "ابدأ التشخيص التفاعلي الآن",
+        heroBtnYoutube: "مشاهدة الفيديو على Abouawd Studio",
+        statPillars: "ركائز نفسية",
+        statTools: "أدوات تشخيص وتطبيق",
+        statDuration: "خلاصة مكثفة",
+        videoCardSub: "انتقل فوراً لأي مفهوم في الفيديو",
+
+        pillarsBadge: "المفاهيم الثمانية الأساسية في الفيديو",
+        pillarsTitle: "خارطة النفس البشرية في «الخروج عن النص»",
+        pillarsSubtitle: "اضغط على أي مفهوم لاستكشاف الجذور النفسية، الأمثلة الواقعية، وكيفية التحرر، مع إمكانية القفز المباشر للدقيقة المحددة في الفيديو.",
+        jumpToVideoBtn: "تشغيل هذه الفقرة في الفيديو",
+
+        quizBadge: "أداة تفاعلية 1 • اختبار الوعي الذاتي",
+        quizTitle: "مقياس: هل تعيش داخل النص المكتوب لك؟",
+        quizSubtitle: "أجب بصدق عن هذه المواقف الـ 6 المستوحاة من الفيديو لقياس مدى تجميل النفس، قوة حدودك النفسية، والتحرر من التكرار القهري.",
+        quizQuestionWord: "السؤال",
+        quizOfWord: "من",
+        quizRetakeBtn: "إعادة الاختبار من جديد",
+
+        filterBadge: "أداة تفاعلية 2 • التقمص الإسقاطي [00:03:47 - 00:04:13]",
+        filterTitle: "أداة «الفلتر النفسي» الذكي وحماية بيتك النفسي",
+        filterDescHtml: `يشرح الفيديو حيلة خطيرة تسمى <strong>«التقمص الإسقاطي»</strong>: عندما يفرغ شخص غضبه أو ذنبه أو اكتئابه داخلك، فتبدأ في الشعور به وكأنه شعورك أنت! الفلتر النفسي يساعدك على سؤال نفسك: <em>"هل هذا الشعور يخصني فعلاً أم جاءني من الخارج؟"</em>`,
+        mentalHomeStatusTitle: "حالة بيتك النفسي [00:01:49]",
+        filterStep1Title: "اختر الشعور المفاجئ الذي تشعر به الآن:",
+        filterStep2Title: "أجب عن أسئلة الفلترة النفسية (ضع علامة صح إذا كان الجواب نعم):",
+
+        closureBadge: "أداة تفاعلية 3 • إغلاق الجروح المفتوحة [00:03:11 & 00:06:26]",
+        closureTitle: "مساحة إغلاق «المواقف غير المنتهية»",
+        closureSubtitle: "الكلمات التي لم تقلها، والغضب الذي كتمته في الماضي لا يختفي، بل يخرج في شكل عصبية مفرطة لأتفه الأسباب. اكتب هنا ما لم تستطع قوله في وقته، واختر قرار الإغلاق المناسب لك.",
+        closureTargetLabel: "إلى من توجه هذه الكلمات غير المعلنة؟ (اختياري)",
+        closureTargetPlaceholder: "مثال: صديق قديم، شريك سابق، موقف في الطفولة...",
+        closureMethodLabel: "اختر طريقة إغلاق هذا الملف [00:06:26]:",
+        closureMethods: [
+          "مواجهة ناضجة ووضع حدود واضحة",
+          "مسامحة واعية لتحرير نفسي من الثقل",
+          "طي الصفحة وإغلاق الجرح نهائياً والمضي قدماً"
+        ],
+        closureTextLabel: "اكتب بصراحة ما كنت تتمنى قوله في ذلك الموقف دون تجميل:",
+        closureTextPlaceholder: "كان من حقي أن أقول لا... هذا الموقف آلمني لأن... وأنا اليوم أختار أن أتحرر من ثقله...",
+        closurePrivacyNote: "مساحة آمنة 100% — ما تكتبه لا يغادر متصفحك أبداً.",
+        closedCountLabel: "مواقف تم إغلاقها:",
+        closureBtnText: "تحرير المشاعر وإغلاق الملف",
+        closureSuccessTitle: "تم تفريغ الشحنة الانفعالية وإغلاق الموقف بنجاح!",
+        closureSuccessDesc: "تذكر دائماً: الاعتراف بمشاعرك الحقيقية هو أول خطوة لكي لا تتحكم فيك من وراء ستار.",
+        closureNewBtn: "كتابة موقف آخر",
+
+        relBadge: "أداة تفاعلية 4 • تشريح العلاقات [00:04:24 - 00:06:37]",
+        relTitle: "كاشف أنماط العلاقات: الحبل السري، العمى، أم القبول الحقيقي؟",
+        relSubtitle: "قارن بين الأنماط الثلاثة المذكورة في الفيديو، أو حدد العلامات الموجودة في علاقتك الحالية ليكشف لك المحلل طبيعة هذه العلاقة.",
+        relInteractiveHeading: "اختبر علاقة معينة في حياتك الآن (حدد العلامات المنطبقة):",
+        relInteractiveSub: "اضغط على الجمل التي تصف ما يحدث في العلاقة لترى التحليل الفوري.",
+
+        stepsBadge: "الخلاصة العملية • الدقيقة [00:06:13]",
+        stepsTitle: "الخطوات العملية الثلاث للخروج عن النص",
+        stepsSubtitle: "يختتم الفيديو بثلاث خطوات عملية واضحة لكي تمسك القلم وتكتب سيناريو حياتك بنفسك. فعل خطواتك اليومية وتابع تقدمك.",
+        pledgeTitle: "«أمسك القلم.. واكتب سيناريو حياتك بنفسك»",
+        pledgeQuote: '"أنت لست مجبراً أن تظل أسيراً لنص كتبه غيرك. الخروج عن النص لا يعني الفوضى أو التمرد الأعمى، بل يعني أن تكتشف نفسك الحقيقية، وتقبلها بلا شروط، وتختار علاقات ترى روحك وتقدرها كما هي."',
+        footerVideoLinkText: "المصدر: قناة Abouawd Studio (ملخص كتاب الخروج عن النص - د. محمد طه)"
+      },
+      en: {
+        navBrandTitle: "Breaking Out of the Script",
+        navBrandSub: "Psychological Recovery • Dr. Mohamed Taha",
+        navPillars: "8 Core Pillars",
+        navQuiz: "Script Quiz",
+        navFilter: "Mental Filter",
+        navClosure: "Unfinished Business",
+        navRelationships: "Relationship Detector",
+        navSteps: "3 Recovery Steps",
+        langToggleText: "العربية",
+
+        heroBadge: "Interactive Guide based on Abouawd Studio • Dr. Mohamed Taha's Book",
+        heroTitleHtml: `Breaking Out of the Script: <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-violet-500 to-emerald-500 dark:from-indigo-400 dark:via-violet-400 dark:to-emerald-400">The Secret Behind Toxic Relationships & How to Survive Them</span>`,
+        heroQuote: '"Are you truly living your own life... or merely acting out a role in a story written by others before you were born?"',
+        heroDesc: "Explore a deep psychological journey to understand the pre-written scripts controlling our choices, build healthy psychological boundaries, break free from compulsive repetition, and close unfinished emotional wounds to reclaim your True Self.",
+        heroBtnStart: "Start Interactive Assessment",
+        heroBtnYoutube: "Watch Video on Abouawd Studio",
+        statPillars: "Core Pillars",
+        statTools: "Interactive Tools",
+        statDuration: "Video Summary",
+        videoCardSub: "Jump directly to any concept in the video",
+
+        pillarsBadge: "The 8 Core Psychological Concepts",
+        pillarsTitle: "Map of the Human Psyche in 'Breaking Out of the Script'",
+        pillarsSubtitle: "Click any pillar to explore its psychological roots, real-life examples, and healing strategy, or jump directly to its timestamp in the video.",
+        jumpToVideoBtn: "Play this segment in video",
+
+        quizBadge: "Interactive Tool 1 • Self-Awareness Assessment",
+        quizTitle: "Quiz: Are You Living Inside a Pre-Written Script?",
+        quizSubtitle: "Answer these 6 video-based scenarios honestly to measure Self-Beautification, Psychological Boundaries, and Compulsive Repetition.",
+        quizQuestionWord: "Question",
+        quizOfWord: "of",
+        quizRetakeBtn: "Retake Assessment",
+
+        filterBadge: "Interactive Tool 2 • Projective Identification [00:03:47 - 00:04:13]",
+        filterTitle: "Smart 'Psychological Filter' & Mental Home Shield",
+        filterDescHtml: `The video explains a subtle mechanism called <strong>Projective Identification</strong>: when someone dumps their anger, guilt, or depression into you, and you begin feeling it as if it were your own! The Psychological Filter helps you ask: <em>"Does this emotion truly belong to me, or did it come from someone else?"</em>`,
+        mentalHomeStatusTitle: "Your Mental Home Status [00:01:49]",
+        filterStep1Title: "Select the sudden emotion you are experiencing right now:",
+        filterStep2Title: "Answer the Psychological Filter questions (check all that apply):",
+
+        closureBadge: "Interactive Tool 3 • Healing Open Wounds [00:03:11 & 00:06:26]",
+        closureTitle: "Unfinished Situations Closure Pad",
+        closureSubtitle: "Unspoken words and suppressed anger from the past never simply vanish—they erupt later as intense overreactions to minor triggers. Write what you couldn't say back then and choose your closure path.",
+        closureTargetLabel: "Who are these unspoken words addressed to? (Optional)",
+        closureTargetPlaceholder: "e.g., An old friend, former partner, childhood situation...",
+        closureMethodLabel: "Choose how to close this file [00:06:26]:",
+        closureMethods: [
+          "Mature confrontation & setting clear boundaries",
+          "Conscious forgiveness to liberate myself from the burden",
+          "Turning the page, closing the wound, and moving forward"
+        ],
+        closureTextLabel: "Write honestly what you wished you had said in that moment without beautification:",
+        closureTextPlaceholder: "I had the right to say No... That moment hurt me because... Today I choose to release its weight...",
+        closurePrivacyNote: "100% Private Space — What you write never leaves your browser.",
+        closedCountLabel: "Situations Closed:",
+        closureBtnText: "Release Emotion & Close File",
+        closureSuccessTitle: "Emotional charge released and situation closed!",
+        closureSuccessDesc: "Remember: Acknowledging your authentic feelings is the first step so they no longer control you from behind the scenes.",
+        closureNewBtn: "Close Another Situation",
+
+        relBadge: "Interactive Tool 4 • Relationship Anatomy [00:04:24 - 00:06:37]",
+        relTitle: "Relationship Pattern Analyzer: Umbilical Cord, Blindness, or True Acceptance?",
+        relSubtitle: "Compare the three relationship patterns from the video, or select the traits present in your current relationship for an instant diagnostic breakdown.",
+        relInteractiveHeading: "Test a specific relationship in your life now (select matching traits):",
+        relInteractiveSub: "Click the statements that describe what happens in the relationship to see the live analysis.",
+
+        stepsBadge: "Practical Action Plan • Timestamp [00:06:13]",
+        stepsTitle: "3 Practical Steps to Break Out of the Script",
+        stepsSubtitle: "The video concludes with 3 actionable steps to pick up the pen and author your own life script. Check off your commitments below.",
+        pledgeTitle: '"Pick Up the Pen... And Write Your Own Life Script"',
+        pledgeQuote: '"You are not condemned to remain a prisoner of a script written by others. Breaking out of the script does not mean chaos—it means discovering your True Self, accepting it unconditionally, and choosing relationships that truly see and value your soul."',
+        footerVideoLinkText: "Source: Abouawd Studio Channel (Summary of 'Breaking Out of the Script' by Dr. Mohamed Taha)"
+      }
+    };
+
+    // ==========================================
+    // 8 CORE PSYCHOLOGICAL PILLARS DATA
+    // ==========================================
+    const pillarsData = [
+      {
+        time: "00:00:00",
+        seconds: 0,
+        icon: "fa-scroll",
+        color: "indigo",
+        ar: {
+          title: "1. النص المكتوب مسبقاً",
+          short: "كيف نعيش أدواراً رسمها الأهل والمدرسة والمجتمع قبل أن نولد.",
+          problem: "منذ طفولتك يُملى عليك كيف تفكر، ماذا تدرس، كيف تتزوج، وحتى كيف تحزن أو تفرح، فتتحول حياتك إلى تمثيل دور في مسرحية لم تكتبها.",
+          example: "شخص يختار مهنة أو زواجاً لا يشبهه فقط لأن «العائلة تتوقع منه ذلك» ثم يشعر بالاغتراب الداخلي.",
+          healing: "الوعي بأن هذه القوالب هي اختيارات غيرك وليست قدراً محتوماً، والبدء في سؤال نفسك: «ماذا أريد أنا حقاً؟»"
+        },
+        en: {
+          title: "1. The Pre-Written Script",
+          short: "Living roles scripted by parents, school, and society before we were born.",
+          problem: "From childhood, you are told how to think, study, marry, and feel—turning your life into acting out a role in a play you never wrote.",
+          example: "Choosing a career path or marriage solely because 'that is what the family expects,' leading to deep inner alienation.",
+          healing: "Realizing these templates are others' expectations—not your destiny—and asking: 'What do I genuinely want?'"
+        }
+      },
+      {
+        time: "00:00:58",
+        seconds: 58,
+        icon: "fa-masks-theater",
+        color: "violet",
+        ar: {
+          title: "2. الحب المشروط وتجميل النفس",
+          short: "الصراع بين النفس الحقيقية والنفس المزيفة خوفاً من الرفض.",
+          problem: "«لكي أحبك يجب أن تكون مؤدباً ومطيعاً كما أريد». هذا الحب المشروط يدفع الطفل لعملية «تجميل النفس» ودفن نفسه الحقيقية تحت قناع النفس المزيفة.",
+          example: "الابتسام والموافقة الدائمة على حساب راحتك خوفاً من أن يغضب الطرف الآخر أو يتركك.",
+          healing: "التوقف عن استجداء القبول المشروط، والتصالح مع النفس الحقيقية بعيوبها ومشاعرها الطبيعية."
+        },
+        en: {
+          title: "2. Conditional Love & False Self",
+          short: "The conflict between True Self and False Self ('Self-Beautification').",
+          problem: "'To love you, you must obey and be who I want.' Conditional love forces a child into 'self-beautification,' burying the True Self beneath a False Self mask.",
+          example: "Constantly smiling and agreeing at the expense of your comfort out of fear of rejection or abandonment.",
+          healing: "Stopping the chase for conditional approval and embracing your True Self with its authentic feelings."
+        }
+      },
+      {
+        time: "00:01:49",
+        seconds: 109,
+        icon: "fa-house-lock",
+        color: "emerald",
+        ar: {
+          title: "3. الحدود النفسية: بيتك النفسي",
+          short: "حماية مساحتك الداخلية وحقك الأصيل في قول «لا، هذا يؤذيني».",
+          problem: "يشبه د. محمد طه النفس بـ«البيت»؛ عندما تترك أبوابه ونوافذه مشرعة بلا حدود، يدخل أي شخص ليعبث بأفكارك ومشاعرك دون استئذان.",
+          example: "السماح للآخرين بالتدخل في قراراتك الخاصة أو السخرية من مشاعرك دون إيقافهم.",
+          healing: "إغلاق الباب أمام كل تجاوز، واستخدام حقك الطبيعي في قول: «لا، هذا لا يناسبني، هذا يؤذيني» دون شعور بالذنب."
+        },
+        en: {
+          title: "3. Psychological Boundaries",
+          short: "Protecting your 'Mental Home' and your right to say 'No, this hurts me.'",
+          problem: "Dr. Taha compares your psyche to a home. Without doors and boundaries, anyone can walk in and tamper with your emotions and self-worth.",
+          example: "Allowing others to intrude on personal choices or belittle your feelings without speaking up.",
+          healing: "Closing the door to intrusion and exercising your right to say: 'No, this doesn't suit me, this hurts me' without guilt."
+        }
+      },
+      {
+        time: "00:02:36",
+        seconds: 156,
+        icon: "fa-rotate",
+        color: "amber",
+        ar: {
+          title: "4. التكرار القهري",
+          short: "لماذا نقع في نفس العلاقات المؤذية مرة بعد مرة؟",
+          problem: "ندخل لا شعورياً في نفس نوعية العلاقات السامة مع أشخاص مختلفين؛ لأن اللاوعي يحاول إعادة تمثيل جرح طفولة قديم على أمل تغيير النهاية هذه المرة!",
+          example: "الارتباط المتكرر بشخصيات ناقدة أو باردة عاطفياً في محاولة يائسة لإثبات أننا نستحق الحب.",
+          healing: "إدراك أن تغيير النهاية لا يكون بإعادة نفس المسرحية مع ممثل جديد، بل بشفاء الجرح الأصلي في داخلك."
+        },
+        en: {
+          title: "4. Compulsive Repetition",
+          short: "Why we repeatedly enter the exact same toxic relationships.",
+          problem: "We unconsciously enter the same toxic dynamic with different people because the subconscious tries to re-stage an old childhood wound hoping to change the ending!",
+          example: "Repeatedly choosing emotionally cold or critical partners in a desperate attempt to finally prove we are lovable.",
+          healing: "Realizing you cannot change the past by re-staging the play with a new actor—you must heal the original inner wound."
+        }
+      },
+      {
+        time: "00:03:11",
+        seconds: 191,
+        icon: "fa-box-open",
+        color: "rose",
+        ar: {
+          title: "5. المواقف والمشاعر غير المنتهية",
+          short: "الكلمات المكتومة التي تتحول إلى قنابل موقوتة في يومك.",
+          problem: "كل موقف سكتّ فيه عن حقك أو كتمت فيه حزنك وغضبك يظل «ملفاً مفتوحاً» في اللاوعي يستهلك طاقتك وينفجر في مواقف تافهة.",
+          example: "انفجارك غضباً بسبب تفصيلة صغيرة في البيت، بينما السبب الحقيقي هو تراكم إهانات أو خذلان قديم لم يُغلق.",
+          healing: "تحديد هذه الملفات المفتوحة، والتعبير عنها، وحسمها بالمواجهة أو المسامحة الواعية أو طي الصفحة."
+        },
+        en: {
+          title: "5. Unfinished Business",
+          short: "Unspoken words and suppressed emotions acting as hidden time-bombs.",
+          problem: "Every situation where you swallowed your pain or stayed silent remains an 'open file' in your subconscious, draining energy and exploding over trivial triggers.",
+          example: "Exploding in rage over a minor household detail when the real cause is accumulated, unresolved past resentment.",
+          healing: "Identifying open emotional files, expressing them, and closing them via confrontation, forgiveness, or turning the page."
+        }
+      },
+      {
+        time: "00:03:47",
+        seconds: 227,
+        icon: "fa-shield-virus",
+        color: "cyan",
+        ar: {
+          title: "6. التقمص الإسقاطي والفلترة",
+          short: "كيف تمتص غضب واكتئاب الآخرين وتظنه شعورك الشخصي.",
+          problem: "يسقط الشخص المؤذي مشاعره المرفوضة (كالذنب أو العجز أو الغضب) داخلك ويتعامل معك بطريقة تجعلك تتقمص هذا الشعور وتصدقه.",
+          example: "تجلس مع شخص وأنت هادئ، وبعد دقائق تشعر بضيق شديد أو ذنب غير مبرر بينما يخرج هو مرتاحاً!",
+          healing: "تشغيل «الفلتر النفسي» [00:04:13]: اسأل نفسك فوراً «هل هذا الشعور يخصني أم جاءني من الشخص الذي أمامي؟»"
+        },
+        en: {
+          title: "6. Projective Identification",
+          short: "Absorbing others' projected anger or guilt as if it were your own.",
+          problem: "A toxic person projects their unwanted feelings (guilt, rage, inadequacy) into you and pressures you until you absorb and act out those feelings.",
+          example: "Entering a conversation calm, and leaving minutes later feeling inexplicable guilt or heaviness while the other person feels relieved.",
+          healing: "Activate the 'Psychological Filter' [00:04:13]: Ask immediately, 'Does this feeling belong to me or did it come from them?'"
+        }
+      },
+      {
+        time: "00:04:24",
+        seconds: 264,
+        icon: "fa-link-slash",
+        color: "orange",
+        ar: {
+          title: "7. الحبل السري وعلاقة العمى",
+          short: "أخطر نمطين في العلاقات: الاعتمادية الكاملة أو الإسقاط الأعمى.",
+          problem: "في «الحبل السري» يتوقف تنفسك وسعادتك على رضا الطرف الآخر. وفي «علاقة العمى» لا ترى الشخص الحقيقي، بل ترى صورة خيالية رسمتها في عقلك.",
+          example: "الشعور بأن الحياة مستحيلة بدون شخص معين، أو الصدمة الشديدة عند اكتشاف أن الطرف الآخر شخص مختلف تماماً عما تخيلته.",
+          healing: "قطع الحبل السري النفسي لتستمد قيمتك من داخلك، ورفع غشاوة العمى لرؤية الإنسان بعيوبه ومميزاته الحقيقية."
+        },
+        en: {
+          title: "7. Umbilical Cord & Blindness",
+          short: "Two dangerous relationship traps: total dependency and blind projection.",
+          problem: "In an 'Umbilical Cord' bond, your psychological survival depends on the other's mood. In a 'Blind Relationship,' you love an idealized fantasy rather than the real person.",
+          example: "Feeling you cannot breathe if your partner is upset, or being shocked when the fantasy image shatters.",
+          healing: "Cutting the psychological umbilical cord to breathe independently, and seeing partners realistically."
+        }
+      },
+      {
+        time: "00:05:13",
+        seconds: 313,
+        icon: "fa-heart-pulse",
+        color: "pink",
+        ar: {
+          title: "8. العالم الداخلي والاحتياج النفسي",
+          short: "الاحتياج الفطري الأصيل: أن تُرى، وتُقدَّر، وتُقبل بلا شروط.",
+          problem: "تحت كل دفاعاتنا وعصبيتنا يكمن طفل داخلي يبحث عن احتياج نفسي ثلاثي: أن يُرى كما هو، وأن يُقدَّر وجوده، وأن يُقبل دون شروط [00:06:37].",
+          example: "البحث المستمر عن الإنجازات المرهقة فقط لكي يلتفت إلينا الآخرون ويقولوا «أنت مهم».",
+          healing: "منح نفسك هذا القبول أولاً، واختيار العلاقات الصحية التي تقبلك في ضعفك قبل قوتك."
+        },
+        en: {
+          title: "8. Inner World & Core Needs",
+          short: "Our deepest psychological need: To be Seen, Appreciated, and Accepted unconditionally.",
+          problem: "Beneath all our defenses lies an inner world longing for three core needs: to be truly Seen, genuinely Appreciated, and Accepted unconditionally [00:06:37].",
+          example: "Overworking to exhaustion just so someone finally notices and validates our existence.",
+          healing: "Giving yourself unconditional acceptance first, and choosing relationships that honor your authentic soul."
+        }
+      }
+    ];
+
+    // ==========================================
+    // QUIZ QUESTIONS DATA (6 QUESTIONS)
+    // ==========================================
+    const quizQuestionsData = [
+      {
+        pillarRef: "00:00:58",
+        ar: {
+          dimension: "النفس الحقيقية مقابل المزيفة",
+          question: "عندما يطلب منك شخص مقرب أمراً يرهقك نفسياً أو يتعارض مع رغبتك، كيف تتصرف غالباً؟",
+          options: [
+            { text: "أوافق فوراً وأبتسم حتى لا يغضب مني أو يرفضني.", score: 1 },
+            { text: "أوافق على مضض وأنا أشعر بضيق شديد وندم داخلي.", score: 2 },
+            { text: "أعتذر بلطف ووضوح وأعبر عن حدودي دون شعور بالذنب.", score: 3 }
+          ]
+        },
+        en: {
+          dimension: "True Self vs. False Self",
+          question: "When someone close asks you for something that drains you or contradicts your wishes, how do you usually respond?",
+          options: [
+            { text: "I immediately agree and smile so they won't get upset or reject me.", score: 1 },
+            { text: "I reluctantly agree while feeling deep inner resentment.", score: 2 },
+            { text: "I politely and clearly decline, expressing my boundaries without guilt.", score: 3 }
+          ]
+        }
+      },
+      {
+        pillarRef: "00:01:49",
+        ar: {
+          dimension: "الحدود النفسية (بيتك النفسي)",
+          question: "إذا وجه لك شخص تعليقاً جارحاً أو تدخل في خصوصياتك تحت مسمى «النصيحة أو المزاح»:",
+          options: [
+            { text: "أبتلع الإهانة وأسكت تماماً، ثم ألوم نفسي طوال الليل.", score: 1 },
+            { text: "ألمح بضيق غير مباشر أو أتهرب من المكان دون حسم.", score: 2 },
+            { text: "أضع حداً واضحاً وأقول بهدوء وحزم: «هذا الكلام يؤذيني ولا أسمح به».", score: 3 }
+          ]
+        },
+        en: {
+          dimension: "Psychological Boundaries",
+          question: "If someone makes a hurtful comment or intrudes on your privacy under the guise of 'advice or joking':",
+          options: [
+            { text: "I swallow the hurt in silence, then replay it all night blaming myself.", score: 1 },
+            { text: "I show indirect discomfort or change the subject without resolving it.", score: 2 },
+            { text: "I set a calm, firm boundary: 'This comment hurts me and I don't accept it.'", score: 3 }
+          ]
+        }
+      },
+      {
+        pillarRef: "00:02:36",
+        ar: {
+          dimension: "التكرار القهري",
+          question: "عندما تتأمل علاقاتك أو صداقاتك السابقة، هل تلاحظ تكرار نفس النهاية المؤلمة؟",
+          options: [
+            { text: "نعم، دائماً أنجذب لنفس النوعية المؤذية وأتفاجأ بنفس الخذلان.", score: 1 },
+            { text: "أحياناً ألاحظ تشابهاً في الأنماط لكنني أجد صعوبة في كسر الدائرة.", score: 2 },
+            { text: "تعلمت من جروحي السابقة وأصبحت أميز العلامات التحذيرية مبكراً.", score: 3 }
+          ]
+        },
+        en: {
+          dimension: "Compulsive Repetition",
+          question: "Looking back at your past relationships or friendships, do you notice the same painful ending repeating?",
+          options: [
+            { text: "Yes, I always attract the same toxic dynamic and face the same heartbreak.", score: 1 },
+            { text: "I sometimes notice similar patterns, though breaking the cycle feels hard.", score: 2 },
+            { text: "I have learned from past wounds and now spot red flags early.", score: 3 }
+          ]
+        }
+      },
+      {
+        pillarRef: "00:03:11",
+        ar: {
+          dimension: "المواقف غير المنتهية",
+          question: "هل تنفجر أحياناً بغضب شديد أو بكاء على موقف بسيط جداً لا يستدعي كل هذا الانفعال؟",
+          options: [
+            { text: "نعم كثيراً، أشعر أن بداخلي جبالاً من الكلمات والمواقف المكتومة.", score: 1 },
+            { text: "يحدث ذلك بين الحين والآخر عندما أكون مضغوطاً.", score: 2 },
+            { text: "نادراً، لأنني أحرص على التعبير عن مشاعري أولاً بأول وإغلاق الملفات.", score: 3 }
+          ]
+        },
+        en: {
+          dimension: "Unfinished Business",
+          question: "Do you sometimes erupt in intense anger or tears over a very minor trigger?",
+          options: [
+            { text: "Yes often; I carry mountains of unspoken words and suppressed situations.", score: 1 },
+            { text: "It happens occasionally when I am under heavy stress.", score: 2 },
+            { text: "Rarely, because I express my feelings regularly and close old files.", score: 3 }
+          ]
+        }
+      },
+      {
+        pillarRef: "00:03:47",
+        ar: {
+          dimension: "التقمص الإسقاطي والفلترة",
+          question: "بعد الجلوس مع شخص كثير الشكوى أو اللوم، كيف تشعر؟",
+          options: [
+            { text: "أخرج محملاً بالذنب والكآبة وكأنني أنا المسؤول عن مشاكله!", score: 1 },
+            { text: "أتأثر بمزاجه السلبي لعدة ساعات قبل أن أستعيد توازني.", score: 2 },
+            { text: "أتعاطف بوعي دون أن أسمح لمشاعره السلبية أن تخترق فلتر بيتي النفسي.", score: 3 }
+          ]
+        },
+        en: {
+          dimension: "Projective Identification & Filtering",
+          question: "After spending time with someone who constantly complains or blames, how do you feel?",
+          options: [
+            { text: "I leave carrying heavy guilt and depression as if I caused their problems!", score: 1 },
+            { text: "I absorb their negative mood for a few hours before recovering.", score: 2 },
+            { text: "I empathize consciously without letting their projected emotions breach my filter.", score: 3 }
+          ]
+        }
+      },
+      {
+        pillarRef: "00:04:24",
+        ar: {
+          dimension: "علاقة الحبل السري والقبول",
+          question: "كيف تتحدد قيمتك النفسية وسعادتك اليومية في علاقاتك المقربة؟",
+          options: [
+            { text: "إذا رضي عني الطرف الآخر أشعر بالحياة، وإذا غضب أشعر بالاختناق التام.", score: 1 },
+            { text: "أحاول الاستقلال عاطفياً لكن رضا الآخرين لا يزال يتحكم في مزاجي.", score: 2 },
+            { text: "أستمد قيمتي من قبولي لنفسي، وأبني علاقات قائمة على الحرية والاحترام المتبادل.", score: 3 }
+          ]
+        },
+        en: {
+          dimension: "Umbilical Cord vs. Autonomy",
+          question: "How is your daily self-worth and emotional stability determined in close relationships?",
+          options: [
+            { text: "If they are pleased with me I feel alive; if they are upset I can barely breathe.", score: 1 },
+            { text: "I try to be independent, but others' approval still controls my mood.", score: 2 },
+            { text: "My worth comes from within, and my relationships are built on mutual freedom.", score: 3 }
+          ]
+        }
+      }
+    ];
+
+    // ==========================================
+    // PSYCHOLOGICAL FILTER SIMULATOR DATA
+    // ==========================================
+    const emotionsFilterData = [
+      {
+        icon: "fa-fire-flame-curved",
+        ar: { name: "غضب وانفعال مفاجئ", desc: "شعور مفاجئ بالغضب أو الرغبة في الصراخ بعد التحدث مع شخص ما." },
+        en: { name: "Sudden Anger", desc: "A sudden wave of irritation or rage right after interacting with someone." }
+      },
+      {
+        icon: "fa-scale-unbalanced",
+        ar: { name: "شعور ثقيل بالذنب", desc: "إحساس بأنك مقصر أو مخطئ رغم أنك لم تفعل شيئاً يؤذي أحداً." },
+        en: { name: "Heavy Guilt", desc: "Feeling like you are at fault or selfish even though you did nothing wrong." }
+      },
+      {
+        icon: "fa-cloud-rain",
+        ar: { name: "انقباض واكتئاب", desc: "هبوط مفاجئ في الطاقة وحزن ثقيل لم يكن موجوداً قبل اللقاء." },
+        en: { name: "Sudden Heaviness", desc: "An abrupt drop in energy and sadness that wasn't there before." }
+      },
+      {
+        icon: "fa-bolt",
+        ar: { name: "قلق وتوتر مفرط", desc: "شعور بأنك مراقب أو أن عليك إثبات نفسك وتبرير كل كلمة." },
+        en: { name: "Anxiety & Tension", desc: "Feeling on edge or forced to justify every word and action." }
+      }
+    ];
+
+    const filterQuestionsText = {
+      ar: [
+        "هل ظهر هذا الشعور فجأة أثناء أو بعد تعاملك مع شخص معين مباشرة؟",
+        "هل كنت هادئاً أو في حالة طبيعية قبل دخول هذا الشخص إلى مساحتك؟",
+        "هل اعتاد هذا الشخص لعب دور الضحية أو إلقاء اللوم والغضب على من حوله؟"
+      ],
+      en: [
+        "Did this emotion appear suddenly during or right after interacting with a specific person?",
+        "Were you feeling calm and balanced before this person entered your space?",
+        "Does this person habitually play the victim or project blame and frustration onto others?"
+      ]
+    };
+
+    // ==========================================
+    // RELATIONSHIP ANALYZER DATA
+    // ==========================================
+    const relationshipPatternsData = [
+      {
+        type: "umbilical",
+        time: "00:04:24",
+        icon: "fa-link",
+        color: "rose",
+        ar: {
+          title: "علاقة الحبل السري",
+          subtitle: "اعتمادية كاملة واختناق نفسي",
+          desc: "كأنك طفل لم يُقطع حبله السري؛ تستمد غذاءك وأكسجينك النفسي بالكامل من الطرف الآخر. إذا ابتسم تحيا، وإذا عبس تختنق.",
+          warning: "خطورتها: تلغي شخصيتك المستقلة وتجعلك رهينة دائمة لتقلبات الطرف الآخر."
+        },
+        en: {
+          title: "Umbilical Cord Relationship",
+          subtitle: "Total Dependency & Emotional Suffocation",
+          desc: "Like an uncut umbilical cord, you draw all your emotional oxygen from the other person. If they smile, you live; if they frown, you suffocate.",
+          warning: "Danger: Erases your independent identity and makes you a hostage to their mood swings."
+        }
+      },
+      {
+        type: "blind",
+        time: "00:04:48",
+        icon: "fa-eye-slash",
+        color: "amber",
+        ar: {
+          title: "علاقة العمى (الإسقاط)",
+          subtitle: "حب الصورة الخيالية لا الإنسان الحقيقي",
+          desc: "تدخل العلاقة وأنت مغمض العينين عن عيوب الطرف الآخر، لأنك تسقط عليه صورة «المنقذ» أو «الأب/الأم البديل» الذي حلمت به.",
+          warning: "خطورتها: تنتهي بصدمة عنيفة بمجرد أن تسقط الصورة الخيالية وتصطدم بالواقع."
+        },
+        en: {
+          title: "Blind Projection Relationship",
+          subtitle: "Loving an Idealized Fantasy, Not the Real Person",
+          desc: "Entering a bond blind to reality because you project an idealized 'savior' or 'parental figure' onto the other person.",
+          warning: "Danger: Ends in a painful crash once the fantasy shatters against reality."
+        }
+      },
+      {
+        type: "healthy",
+        time: "00:06:37",
+        icon: "fa-hand-holding-heart",
+        color: "emerald",
+        ar: {
+          title: "علاقة القبول غير المشروط",
+          subtitle: "رؤية حقيقية • تقدير • قبول بلا أقنعة",
+          desc: "علاقة صحية ناضجة يراك فيها الطرف الآخر كما أنت دون تجميل، ويقدر مشاعرك وحدودك، ويقبلك في أوقات ضعفك وقوتك.",
+          warning: "علامتها: تشعر فيها بالأمان والحرية في أن تكون نفسك الحقيقية."
+        },
+        en: {
+          title: "Unconditional Acceptance",
+          subtitle: "Being Seen • Appreciated • Accepted Authentically",
+          desc: "A mature, healthy bond where the other person sees the real you without masks, respects your boundaries, and accepts you in weakness and strength.",
+          warning: "Hallmark: You feel safe and free to be your True Self without fear."
+        }
+      }
+    ];
+
+    const relationshipTraitsList = [
+      { category: "umbilical", ar: "أشعر أن يومي ينهار بالكامل إذا تغيرت نبرة صوته معي.", en: "My entire day collapses if their tone of voice changes toward me." },
+      { category: "umbilical", ar: "أخاف من اتخاذ أي قرار شخصي دون أخذ موافقته أولاً.", en: "I am afraid to make personal decisions without getting their approval first." },
+      { category: "blind", ar: "أتجاهل علامات مؤذية واضحة وأبررها بأن «الحب سيغيره».", en: "I ignore clear toxic red flags and tell myself 'my love will change them.'" },
+      { category: "blind", ar: "أشعر أنني أحب الفكرة التي رسمتها عنه في خيالي أكثر من واقعه الفعلي.", en: "I love the idealized image of them in my head more than their actual behavior." },
+      { category: "healthy", ar: "أستطيع قول «لا» والتعبير عن اختلافي معه دون خوف من العقاب أو الهجر.", en: "I can say 'No' and disagree openly without fearing punishment or abandonment." },
+      { category: "healthy", ar: "لا أحتاج لتجميل نفسي أو التمثيل أمامه لكي أشعر بالحب والتقدير.", en: "I don't need to beautify myself or wear a mask around them to feel valued." }
+    ];
+
+    // ==========================================
+    // 3 PRACTICAL STEPS DATA ([00:06:13])
+    // ==========================================
+    const practicalStepsData = [
+      {
+        time: "00:06:16",
+        icon: "fa-shield-halved",
+        ar: {
+          title: "الخطوة الأولى: ابنِ حدودك النفسية واحمِ بيتك النفسي",
+          desc: "تعلم أن تقول «لا» لكل ما يؤذيك أو يستنزفك، ولا تسمح لأحد بإلقاء مشاعره السلبية داخل مساحتك الخاصة عبر الفلتر النفسي."
+        },
+        en: {
+          title: "Step 1: Build Your Psychological Boundaries & Protect Your Mental Home",
+          desc: "Learn to say 'No' to anything that harms or drains you, and use your psychological filter to stop others from dumping their negativity inside you."
+        }
+      },
+      {
+        time: "00:06:26",
+        icon: "fa-book-Open",
+        ar: {
+          title: "الخطوة الثانية: أغلق المواقف والمشاعر غير المنتهية",
+          desc: "لا تترك جروح الماضي مفتوحة تتحكم في ردود أفعالك اليوم؛ احسمها بالمواجهة الناضجة، أو المسامحة الواعية، أو طي الصفحة."
+        },
+        en: {
+          title: "Step 2: Close Unfinished Situations & Unresolved Emotions",
+          desc: "Do not leave past wounds open to hijack your present reactions; resolve them through mature confrontation, conscious forgiveness, or turning the page."
+        }
+      },
+      {
+        time: "00:06:37",
+        icon: "fa-Seedling",
+        ar: {
+          title: "الخطوة الثالثة: اقبل نفسك الحقيقية واختر علاقات القبول غير المشروط",
+          desc: "توقف عن تجميل نفسك لإرضاء الآخرين، واقترب من العلاقات الصحية التي تراك، وتقدرك، وتقبلك كما أنت بلا شروط."
+        },
+        en: {
+          title: "Step 3: Accept Your True Self & Choose Unconditional Relationships",
+          desc: "Stop beautifying yourself to please others, and cultivate relationships that genuinely see, appreciate, and accept you as you are."
+        }
+      }
+    ];
+
+    // ==========================================
+    // INITIALIZATION & RENDERING FUNCTIONS
+    // ==========================================
+    function initApp() {
+      applyTheme();
+      applyLanguage();
+    }
+
+    function toggleTheme() {
+      currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('outOfScript_theme', currentTheme);
+      applyTheme();
+    }
+
+    function applyTheme() {
+      const htmlEl = document.documentElement;
+      const themeIcon = document.getElementById('themeIcon');
+      if (currentTheme === 'dark') {
+        htmlEl.classList.add('dark');
+        themeIcon.className = 'fa-solid fa-sun text-base text-amber-400';
+      } else {
+        htmlEl.classList.remove('dark');
+        themeIcon.className = 'fa-solid fa-moon text-base text-indigo-600';
+      }
+    }
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'ar' ? 'en' : 'ar';
+      localStorage.setItem('outOfScript_lang', currentLang);
+      applyLanguage();
+    }
+
+    function applyLanguage() {
+      const htmlEl = document.documentElement;
+      htmlEl.lang = currentLang;
+      htmlEl.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+
+      const t = i18n[currentLang];
+
+      // Static Text Updates
+      document.getElementById('navBrandTitle').textContent = t.navBrandTitle;
+      document.getElementById('navBrandSub').textContent = t.navBrandSub;
+      document.getElementById('navPillars').textContent = t.navPillars;
+      document.getElementById('navQuiz').textContent = t.navQuiz;
+      document.getElementById('navFilter').textContent = t.navFilter;
+      document.getElementById('navClosure').textContent = t.navClosure;
+      document.getElementById('navRelationships').textContent = t.navRelationships;
+      document.getElementById('navSteps').textContent = t.navSteps;
+      document.getElementById('langToggleText').textContent = t.langToggleText;
+
+      document.getElementById('heroBadge').textContent = t.heroBadge;
+      document.getElementById('heroTitle').innerHTML = t.heroTitleHtml;
+      document.getElementById('heroQuote').textContent = t.heroQuote;
+      document.getElementById('heroDesc').textContent = t.heroDesc;
+      document.getElementById('heroBtnStart').textContent = t.heroBtnStart;
+      document.getElementById('heroBtnYoutube').textContent = t.heroBtnYoutube;
+      document.getElementById('statPillars').textContent = t.statPillars;
+      document.getElementById('statTools').textContent = t.statTools;
+      document.getElementById('statDuration').textContent = t.statDuration;
+      document.getElementById('videoCardSub').innerHTML = `<i class="fa-solid fa-clock-rotate-left"></i> ${t.videoCardSub}`;
+
+      document.getElementById('pillarsBadge').textContent = t.pillarsBadge;
+      document.getElementById('pillarsTitle').textContent = t.pillarsTitle;
+      document.getElementById('pillarsSubtitle').textContent = t.pillarsSubtitle;
+
+      document.getElementById('quizBadge').textContent = t.quizBadge;
+      document.getElementById('quizTitle').textContent = t.quizTitle;
+      document.getElementById('quizSubtitle').textContent = t.quizSubtitle;
+
+      document.getElementById('filterBadge').textContent = t.filterBadge;
+      document.getElementById('filterTitle').textContent = t.filterTitle;
+      document.getElementById('filterDesc').innerHTML = t.filterDescHtml;
+      document.getElementById('mentalHomeStatusTitle').textContent = t.mentalHomeStatusTitle;
+      document.getElementById('filterStep1Title').innerHTML = `<span class="w-6 h-6 rounded-full bg-indigo-600 text-white text-xs flex items-center justify-center">1</span><span>${t.filterStep1Title}</span>`;
+      document.getElementById('filterStep2Title').innerHTML = `<span class="w-6 h-6 rounded-full bg-indigo-600 text-white text-xs flex items-center justify-center">2</span><span>${t.filterStep2Title}</span>`;
+
+      document.getElementById('closureBadge').textContent = t.closureBadge;
+      document.getElementById('closureTitle').textContent = t.closureTitle;
+      document.getElementById('closureSubtitle').textContent = t.closureSubtitle;
+      document.getElementById('closureTargetLabel').textContent = t.closureTargetLabel;
+      document.getElementById('closureTargetInput').placeholder = t.closureTargetPlaceholder;
+      document.getElementById('closureMethodLabel').textContent = t.closureMethodLabel;
+      document.getElementById('closureTextLabel').textContent = t.closureTextLabel;
+      document.getElementById('closureTextarea').placeholder = t.closureTextPlaceholder;
+      document.getElementById('closurePrivacyNote').textContent = t.closurePrivacyNote;
+      document.getElementById('closedCountLabel').textContent = t.closedCountLabel;
+      document.getElementById('closedCountValue').textContent = closedSituationsCount;
+      document.getElementById('closureBtnText').textContent = t.closureBtnText;
+      document.getElementById('closureSuccessTitle').textContent = t.closureSuccessTitle;
+      document.getElementById('closureSuccessDesc').textContent = t.closureSuccessDesc;
+      document.getElementById('closureNewBtn').textContent = t.closureNewBtn;
+
+      // Populate Closure Select Options
+      const methodSelect = document.getElementById('closureMethodSelect');
+      methodSelect.innerHTML = t.closureMethods.map((m, idx) => `<option value="${idx}">${m}</option>`).join('');
+
+      document.getElementById('relBadge').textContent = t.relBadge;
+      document.getElementById('relTitle').textContent = t.relTitle;
+      document.getElementById('relSubtitle').textContent = t.relSubtitle;
+      document.getElementById('relInteractiveHeading').innerHTML = `<i class="fa-solid fa-magnifying-glass-chart text-indigo-500"></i><span>${t.relInteractiveHeading}</span>`;
+      document.getElementById('relInteractiveSub').textContent = t.relInteractiveSub;
+
+      document.getElementById('stepsBadge').textContent = t.stepsBadge;
+      document.getElementById('stepsTitle').textContent = t.stepsTitle;
+      document.getElementById('stepsSubtitle').textContent = t.stepsSubtitle;
+      document.getElementById('pledgeTitle').textContent = t.pledgeTitle;
+      document.getElementById('pledgeQuote').textContent = t.pledgeQuote;
+      document.getElementById('footerVideoLinkText').textContent = t.footerVideoLinkText;
+
+      // Show English credit alongside Arabic credit when in English mode
+      const footerCreditEn = document.getElementById('footerCreditEn');
+      if (currentLang === 'en') {
+        footerCreditEn.classList.remove('hidden');
+      } else {
+        footerCreditEn.classList.add('hidden');
+      }
+
+      // Render Dynamic Sections
+      renderHeroTimestamps();
+      renderPillars();
+      renderQuiz();
+      renderPsychologicalFilter();
+      renderRelationshipsSection();
+      renderPracticalSteps();
+    }
+
+    // ==========================================
+    // VIDEO TIMESTAMP JUMPER
+    // ==========================================
+    function jumpToVideoTimestamp(seconds) {
+      const iframe = document.getElementById('ytPlayerFrame');
+      iframe.src = `https://www.youtube.com/embed/_1V0RLJQc6A?start=${seconds}&autoplay=1&rel=0`;
+      document.getElementById('hero').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function renderHeroTimestamps() {
+      const container = document.getElementById('heroTimestampPills');
+      container.innerHTML = pillarsData.map((p, idx) => {
+        const content = p[currentLang];
+        const shortName = content.title.replace(/^\d+\.\s*/, '');
+        return `
+          <button onclick="selectPillar(${idx}); jumpToVideoTimestamp(${p.seconds})" 
+            class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-600 text-slate-700 dark:text-slate-300 transition-colors flex items-center gap-1.5">
+            <span class="font-mono text-[11px] text-indigo-500 dark:text-indigo-400 group-hover:text-white">[${p.time}]</span>
+            <span>${shortName}</span>
+          </button>
+        `;
+      }).join('');
+    }
+
+    // ==========================================
+    // SECTION 1: 8 PILLARS EXPLORER
+    // ==========================================
+    function selectPillar(index) {
+      selectedPillarIndex = index;
+      renderPillars();
+    }
+
+    function renderPillars() {
+      const grid = document.getElementById('pillarsGrid');
+      const spotlight = document.getElementById('pillarSpotlight');
+      const t = i18n[currentLang];
+
+      grid.innerHTML = pillarsData.map((pillar, idx) => {
+        const c = pillar[currentLang];
+        const isSelected = idx === selectedPillarIndex;
+        return `
+          <button onclick="selectPillar(${idx})" 
+            class="psych-card text-start p-5 rounded-2xl border transition-all flex flex-col justify-between ${
+              isSelected 
+                ? 'bg-indigo-600 text-white border-indigo-500 shadow-lg shadow-indigo-500/25 ring-2 ring-indigo-400' 
+                : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 hover:border-indigo-400 dark:hover:border-indigo-500'
+            }">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <div class="w-10 h-10 rounded-xl flex items-center justify-center ${
+                  isSelected ? 'bg-white/20 text-white' : 'bg-indigo-50 dark:bg-indigo-950/80 text-indigo-600 dark:text-indigo-400'
+                }">
+                  <i class="fa-solid ${pillar.icon} text-lg"></i>
+                </div>
+                <span class="font-mono text-xs px-2.5 py-1 rounded-md font-bold ${
+                  isSelected ? 'bg-black/25 text-indigo-100' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
+                }">
+                  ${pillar.time}
+                </span>
+              </div>
+              <h3 class="font-extrabold text-base mb-1.5 ${isSelected ? 'text-white' : 'text-slate-900 dark:text-white'}">
+                ${c.title}
+              </h3>
+              <p class="text-xs leading-relaxed ${isSelected ? 'text-indigo-100' : 'text-slate-500 dark:text-slate-400'}">
+                ${c.short}
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t ${isSelected ? 'border-white/20 text-white' : 'border-slate-100 dark:border-slate-800/80 text-indigo-600 dark:text-indigo-400'} flex items-center justify-between text-xs font-bold">
+              <span>${currentLang === 'ar' ? 'عرض التحليل الكامل' : 'View Deep Analysis'}</span>
+              <i class="fa-solid ${currentLang === 'ar' ? 'fa-arrow-left' : 'fa-arrow-right'}"></i>
+            </div>
+          </button>
+        `;
+      }).join('');
+
+      // Render Spotlight for Active Pillar
+      const activePillar = pillarsData[selectedPillarIndex];
+      const ac = activePillar[currentLang];
+      const labels = currentLang === 'ar' 
+        ? { root: "الجذر النفسي للمشكلة", example: "مثال من الواقع اليومي", cure: "روشتة الخروج عن النص" }
+        : { root: "Psychological Root", example: "Real-Life Scenario", cure: "How to Break Out of the Script" };
+
+      spotlight.innerHTML = `
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-white/10">
+          <div class="flex items-center gap-4">
+            <div class="w-14 h-14 rounded-2xl bg-indigo-500/20 border border-indigo-400/30 flex items-center justify-center text-indigo-300 text-2xl shrink-0">
+              <i class="fa-solid ${activePillar.icon}"></i>
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="font-mono text-xs px-2.5 py-0.5 rounded bg-indigo-500/30 text-indigo-200 font-bold">
+                  [${activePillar.time}]
+                </span>
+                <span class="text-xs text-emerald-400 font-semibold">
+                  ${currentLang === 'ar' ? 'تحليل كتاب الخروج عن النص' : 'Book & Video Insight'}
+                </span>
+              </div>
+              <h3 class="text-xl sm:text-2xl font-black mt-1">${ac.title}</h3>
+            </div>
+          </div>
+
+          <button onclick="jumpToVideoTimestamp(${activePillar.seconds})" 
+            class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold border border-white/15 transition-all self-start lg:self-auto">
+            <i class="fa-solid fa-play text-emerald-400"></i>
+            <span>${t.jumpToVideoBtn} (${activePillar.time})</span>
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 pt-6">
+          <div class="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+            <div class="text-xs font-bold text-rose-400 uppercase tracking-wider flex items-center gap-1.5">
+              <i class="fa-solid fa-magnifying-glass"></i> ${labels.root}
+            </div>
+            <p class="text-sm text-slate-200 leading-relaxed">${ac.problem}</p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+            <div class="text-xs font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
+              <i class="fa-solid fa-user-clock"></i> ${labels.example}
+            </div>
+            <p class="text-sm text-slate-200 leading-relaxed">${ac.example}</p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 space-y-2">
+            <div class="text-xs font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
+              <i class="fa-solid fa-key"></i> ${labels.cure}
+            </div>
+            <p class="text-sm text-emerald-100 leading-relaxed">${ac.healing}</p>
+          </div>
+        </div>
+      `;
+    }
+
+    // ==========================================
+    // SECTION 2: INTERACTIVE SELF-ASSESSMENT QUIZ
+    // ==========================================
+    function renderQuiz() {
+      const qContainer = document.getElementById('quizQuestionContainer');
+      const rContainer = document.getElementById('quizResultContainer');
+      const progressLabel = document.getElementById('quizProgressLabel');
+      const percentageLabel = document.getElementById('quizPercentageLabel');
+      const progressBar = document.getElementById('quizProgressBar');
+      const t = i18n[currentLang];
+
+      if (currentQuizIndex >= quizQuestionsData.length) {
+        // Show Results
+        qContainer.classList.add('hidden');
+        rContainer.classList.remove('hidden');
+        progressLabel.textContent = currentLang === 'ar' ? 'اكتمل التشخيص النفسي' : 'Assessment Completed';
+        percentageLabel.textContent = '100%';
+        progressBar.style.width = '100%';
+        renderQuizResults();
+        return;
+      }
+
+      qContainer.classList.remove('hidden');
+      rContainer.classList.add('hidden');
+
+      const total = quizQuestionsData.length;
+      const pct = Math.round(((currentQuizIndex + 1) / total) * 100);
+      progressLabel.textContent = `${t.quizQuestionWord} ${currentQuizIndex + 1} ${t.quizOfWord} ${total}`;
+      percentageLabel.textContent = `${pct}%`;
+      progressBar.style.width = `${pct}%`;
+
+      const qItem = quizQuestionsData[currentQuizIndex];
+      const qc = qItem[currentLang];
+
+      qContainer.innerHTML = `
+        <div class="space-y-2">
+          <span class="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-600 dark:text-indigo-400">
+            <i class="fa-solid fa-layer-group"></i>
+            <span>${qc.dimension}</span>
+            <span class="font-mono text-[11px] opacity-75">[${qItem.pillarRef}]</span>
+          </span>
+          <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white leading-snug">
+            ${qc.question}
+          </h3>
+        </div>
+
+        <div class="space-y-3 pt-2">
+          ${qc.options.map((opt, oIdx) => `
+            <button onclick="submitQuizAnswer(${opt.score})" 
+              class="w-full text-start p-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-800/50 hover:bg-indigo-50 dark:hover:bg-indigo-950/60 hover:border-indigo-400 dark:hover:border-indigo-500 transition-all flex items-center justify-between gap-3 group">
+              <span class="text-sm sm:text-base font-semibold text-slate-800 dark:text-slate-200 group-hover:text-indigo-700 dark:group-hover:text-indigo-300">
+                ${opt.text}
+              </span>
+              <span class="w-8 h-8 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-400 group-hover:bg-indigo-600 group-hover:text-white group-hover:border-indigo-600 transition-colors shrink-0">
+                <i class="fa-solid ${currentLang === 'ar' ? 'fa-chevron-left' : 'fa-chevron-right'} text-xs"></i>
+              </span>
+            </button>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    function submitQuizAnswer(score) {
+      quizAnswers.push(score);
+      currentQuizIndex++;
+      renderQuiz();
+    }
+
+    function resetQuiz() {
+      currentQuizIndex = 0;
+      quizAnswers = [];
+      renderQuiz();
+    }
+
+    function renderQuizResults() {
+      const rContainer = document.getElementById('quizResultContainer');
+      const totalScore = quizAnswers.reduce((a, b) => a + b, 0); // Range: 6 to 18
+      const maxScore = 18;
+      const percentage = Math.round((totalScore / maxScore) * 100);
+      const t = i18n[currentLang];
+
+      let badgeText = '';
+      let summaryText = '';
+      let adviceText = '';
+      let badgeColor = 'indigo';
+
+      if (totalScore <= 9) {
+        badgeColor = 'rose';
+        badgeText = currentLang === 'ar' ? 'أسير النص المكتوب مسبقاً (حاجة ماسة لحماية الحدود)' : 'Inside the Pre-Written Script (High Need for Boundaries)';
+        summaryText = currentLang === 'ar'
+          ? 'تشير إجاباتك إلى أنك تميل بشدة إلى «تجميل النفس» لإرضاء الآخرين على حساب نفسك الحقيقية، وتترك باب بيتك النفسي مفتوحاً للتقمص الإسقاطي والمواقف غير المنتهية.'
+          : 'Your answers indicate a strong tendency toward Self-Beautification to please others at the expense of your True Self, leaving your Mental Home vulnerable to projective identification.';
+        adviceText = currentLang === 'ar'
+          ? 'ابدأ اليوم بتطبيق الخطوات الثلاث في الدقيقة [00:06:13]: تدرب على قول «لا» في موقف واحد بسيط، واستخدم أداة الفلتر النفسي بالأسفل.'
+          : 'Start applying the 3 steps at [00:06:13] today: practice saying a calm "No" in one small situation, and use the Psychological Filter below.';
+      } else if (totalScore <= 14) {
+        badgeColor = 'amber';
+        badgeText = currentLang === 'ar' ? 'في مرحلة الوعي وبداية الخروج عن النص' : 'Awakening & Stepping Out of the Script';
+        summaryText = currentLang === 'ar'
+          ? 'أنت تدرك وجود النصوص المسبقة وتحاول حماية حدودك، لكن بعض المواقف غير المنتهية أو العلاقات الاعتمادية لا تزال تستنزف طاقتك من وقت لآخر.'
+          : 'You recognize pre-written scripts and try to guard your boundaries, though some unfinished situations or dependency patterns still drain your energy occasionally.';
+        adviceText = currentLang === 'ar'
+          ? 'استخدم «مساحة إغلاق المواقف غير المنتهية» بالأسفل لتفريغ المشاعر المكبوتة، وراقب أي علاقة تحمل صفات الحبل السري.'
+          : 'Use the "Unfinished Situations Closure Pad" below to release suppressed emotions and audit your relationships for Umbilical Cord traits.';
+      } else {
+        badgeColor = 'emerald';
+        badgeText = currentLang === 'ar' ? 'مؤلف واعي لسيناريو حياتك (حدود نفسية ناضجة)' : 'Conscious Author of Your Life Script (Healthy Boundaries)';
+        summaryText = currentLang === 'ar'
+          ? 'تتمتع بوعي نفسي مرتفع، وتعرف كيف تحمي بيتك النفسي بفلتر واعي، وتعيش بنفسك الحقيقية دون الحاجة لتجميلها أو استجداء حب مشروط.'
+          : 'You possess strong psychological awareness, protect your Mental Home with a conscious filter, and live authentically without chasing conditional love.';
+        adviceText = currentLang === 'ar'
+          ? 'استمر في الحفاظ على علاقات القبول غير المشروط [00:06:37] ومراجعة ملفاتك النفسية أولاً بأول.'
+          : 'Continue nurturing unconditional acceptance relationships [00:06:37] and keeping your emotional files clear.';
+      }
+
+      rContainer.innerHTML = `
+        <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700 text-center space-y-4">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold bg-${badgeColor}-100 dark:bg-${badgeColor}-950 text-${badgeColor}-700 dark:text-${badgeColor}-300 border border-${badgeColor}-300 dark:border-${badgeColor}-800">
+            <i class="fa-solid fa-chart-pie"></i>
+            <span>${badgeText} (${percentage}%)</span>
+          </div>
+          <p class="text-sm sm:text-base text-slate-700 dark:text-slate-200 max-w-2xl mx-auto leading-relaxed">
+            ${summaryText}
+          </p>
+          <div class="p-4 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-xs sm:text-sm font-semibold text-indigo-700 dark:text-indigo-300 max-w-xl mx-auto">
+            <i class="fa-solid fa-lightbulb me-1"></i> ${adviceText}
+          </div>
+          <div class="pt-2">
+            <button onclick="resetQuiz()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs sm:text-sm font-bold transition-all">
+              <i class="fa-solid fa-rotate-right"></i>
+              <span>${t.quizRetakeBtn}</span>
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    // ==========================================
+    // SECTION 3: PSYCHOLOGICAL FILTER SIMULATOR
+    // ==========================================
+    function selectEmotionFilter(idx) {
+      selectedEmotionIndex = idx;
+      renderPsychologicalFilter();
+    }
+
+    function toggleFilterCheck(qIdx) {
+      filterChecks[qIdx] = !filterChecks[qIdx];
+      renderPsychologicalFilter();
+    }
+
+    function renderPsychologicalFilter() {
+      const emotionGrid = document.getElementById('emotionButtonsGrid');
+      const questionsList = document.getElementById('filterQuestionsList');
+      const diagnosisBox = document.getElementById('filterDiagnosisResult');
+
+      emotionGrid.innerHTML = emotionsFilterData.map((em, idx) => {
+        const ec = em[currentLang];
+        const active = idx === selectedEmotionIndex;
+        return `
+          <button onclick="selectEmotionFilter(${idx})" 
+            class="p-3.5 rounded-2xl border text-center transition-all flex flex-col items-center gap-2 ${
+              active 
+                ? 'bg-indigo-600 text-white border-indigo-500 shadow-md' 
+                : 'bg-slate-50 dark:bg-slate-800/70 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-indigo-400'
+            }">
+            <i class="fa-solid ${em.icon} text-xl ${active ? 'text-amber-300' : 'text-indigo-500'}"></i>
+            <span class="text-xs font-bold">${ec.name}</span>
+          </button>
+        `;
+      }).join('');
+
+      const qTexts = filterQuestionsText[currentLang];
+      questionsList.innerHTML = qTexts.map((qText, qIdx) => {
+        const checked = filterChecks[qIdx];
+        return `
+          <button onclick="toggleFilterCheck(${qIdx})" 
+            class="w-full p-3.5 rounded-xl border text-start flex items-center justify-between gap-3 transition-all ${
+              checked 
+                ? 'bg-emerald-50 dark:bg-emerald-950/50 border-emerald-400 dark:border-emerald-700 text-emerald-900 dark:text-emerald-200' 
+                : 'bg-slate-50 dark:bg-slate-800/50 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300'
+            }">
+            <span class="text-xs sm:text-sm font-semibold">${qText}</span>
+            <span class="w-6 h-6 rounded-lg flex items-center justify-center shrink-0 ${
+              checked ? 'bg-emerald-500 text-white' : 'bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600'
+            }">
+              ${checked ? '<i class="fa-solid fa-check text-xs"></i>' : ''}
+            </span>
+          </button>
+        `;
+      }).join('');
+
+      // Calculate Filter Diagnosis
+      const activeEmotion = emotionsFilterData[selectedEmotionIndex][currentLang];
+      const yesCount = filterChecks.filter(Boolean).length;
+
+      let diagTitle = '';
+      let diagBody = '';
+      let mantra = '';
+
+      if (yesCount >= 2) {
+        diagTitle = currentLang === 'ar'
+          ? `تحذير الفلتر النفسي: هذا «تقمص إسقاطي» وليس شعورك الأصيل! [00:03:47]`
+          : `Filter Alert: This is 'Projective Identification'—Not Your Own Emotion! [00:03:47]`;
+        diagBody = currentLang === 'ar'
+          ? `شعور (${activeEmotion.name}) الذي تحمله الآن تم إسقاطه عليك من الخارج. الطرف الآخر أفرغ شحنته السلبية داخل بيتك النفسي لتشعر بها بدلاً منه.`
+          : `The (${activeEmotion.name}) you are feeling right now was projected onto you from outside. The other person dumped their emotional weight into your Mental Home.`;
+        mantra = currentLang === 'ar'
+          ? 'ردد الآن لحماية حدودك: «هذا الشعور لا يخصني، أنا أرفض استلامه وأعيده لصاحبه، وبيتي النفسي آمن».'
+          : 'Repeat to guard your boundary: "This emotion does not belong to me. I refuse to absorb it, and my Mental Home is safe."';
+      } else {
+        diagTitle = currentLang === 'ar'
+          ? `نتيجة الفلتر: شعور داخلي يحتاج إلى استماع وإغلاق هادئ`
+          : `Filter Result: An Inner Feeling Needing Gentle Attention`;
+        diagBody = currentLang === 'ar'
+          ? `يبدو أن شعور (${activeEmotion.name}) مرتبط بموقف داخلي أو ملف غير منتهٍ يخصك أنت. لا تكتمه ولا تجمل نفسك أمامه.`
+          : `It appears this (${activeEmotion.name}) is connected to an internal trigger or unfinished situation of your own. Acknowledge it honestly without self-beautification.`;
+        mantra = currentLang === 'ar'
+          ? 'نصيحة د. محمد طه: اسمع رسالة هذا الشعور، وفرّغه في «مساحة إغلاق المواقف غير المنتهية» بالأسفل.'
+          : 'Dr. Taha’s Advice: Listen to what this emotion is telling you, and express it in the Closure Pad below.';
+      }
+
+      diagnosisBox.innerHTML = `
+        <div class="flex items-start gap-3">
+          <div class="w-10 h-10 rounded-xl ${yesCount >= 2 ? 'bg-amber-500 text-white' : 'bg-indigo-600 text-white'} flex items-center justify-center shrink-0 mt-0.5">
+            <i class="fa-solid ${yesCount >= 2 ? 'fa-shield-cat' : 'fa-filter'}"></i>
+          </div>
+          <div class="space-y-1.5">
+            <h4 class="font-extrabold text-sm sm:text-base text-slate-900 dark:text-white">${diagTitle}</h4>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">${diagBody}</p>
+            <div class="pt-1 text-xs font-bold text-indigo-700 dark:text-indigo-300">
+              <i class="fa-solid fa-quote-right me-1"></i> ${mantra}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // ==========================================
+    // SECTION 4: UNFINISHED SITUATIONS CLOSURE PAD
+    // ==========================================
+    function triggerClosureRelease() {
+      const textarea = document.getElementById('closureTextarea');
+      const cardBody = document.getElementById('closureCardBody');
+      const successBanner = document.getElementById('closureSuccessBanner');
+
+      if (!textarea.value.trim()) {
+        textarea.focus();
+        textarea.classList.add('ring-2', 'ring-rose-500');
+        setTimeout(() => textarea.classList.remove('ring-2', 'ring-rose-500'), 1200);
+        return;
+      }
+
+      cardBody.classList.add('animate-release');
+      setTimeout(() => {
+        closedSituationsCount++;
+        localStorage.setItem('outOfScript_closedCount', closedSituationsCount.toString());
+        document.getElementById('closedCountValue').textContent = closedSituationsCount;
+
+        cardBody.classList.add('hidden');
+        cardBody.classList.remove('animate-release');
+        successBanner.classList.remove('hidden');
+      }, 1100);
+    }
+
+    function resetClosurePad() {
+      const textarea = document.getElementById('closureTextarea');
+      const targetInput = document.getElementById('closureTargetInput');
+      const cardBody = document.getElementById('closureCardBody');
+      const successBanner = document.getElementById('closureSuccessBanner');
+
+      textarea.value = '';
+      targetInput.value = '';
+      successBanner.classList.add('hidden');
+      cardBody.classList.remove('hidden');
+    }
+
+    // ==========================================
+    // SECTION 5: RELATIONSHIP PATTERN ANALYZER
+    // ==========================================
+    function toggleRelTrait(idx) {
+      if (selectedRelTraits.has(idx)) {
+        selectedRelTraits.delete(idx);
+      } else {
+        selectedRelTraits.add(idx);
+      }
+      renderRelationshipsSection();
+    }
+
+    function renderRelationshipsSection() {
+      const cardsGrid = document.getElementById('relCardsGrid');
+      const checklist = document.getElementById('relTraitsChecklist');
+      const output = document.getElementById('relAnalysisOutput');
+
+      cardsGrid.innerHTML = relationshipPatternsData.map(item => {
+        const c = item[currentLang];
+        const borderMap = {
+          rose: 'border-rose-300 dark:border-rose-800/80',
+          amber: 'border-amber-300 dark:border-amber-800/80',
+          emerald: 'border-emerald-300 dark:border-emerald-800/80'
+        };
+        const badgeMap = {
+          rose: 'bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-300',
+          amber: 'bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-300',
+          emerald: 'bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300'
+        };
+
+        return `
+          <div class="psych-card rounded-3xl bg-white dark:bg-slate-900 border ${borderMap[item.color]} p-6 shadow-md flex flex-col justify-between space-y-4">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="px-3 py-1 rounded-full text-xs font-bold ${badgeMap[item.color]}">
+                  <i class="fa-solid ${item.icon} me-1"></i> ${c.title}
+                </span>
+                <span class="font-mono text-xs text-slate-400">[${item.time}]</span>
+              </div>
+              <div class="text-xs font-bold text-slate-500 dark:text-slate-400">${c.subtitle}</div>
+              <p class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">${c.desc}</p>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/80 text-xs font-semibold text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/60">
+              ${c.warning}
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      checklist.innerHTML = relationshipTraitsList.map((trait, idx) => {
+        const active = selectedRelTraits.has(idx);
+        return `
+          <button onclick="toggleRelTrait(${idx})" 
+            class="p-3.5 rounded-2xl border text-start flex items-center justify-between gap-3 transition-all ${
+              active 
+                ? 'bg-indigo-50 dark:bg-indigo-950/70 border-indigo-500 text-indigo-900 dark:text-indigo-200 shadow-sm' 
+                : 'bg-slate-50/70 dark:bg-slate-800/40 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300'
+            }">
+            <span class="text-xs sm:text-sm font-semibold">${trait[currentLang]}</span>
+            <span class="w-6 h-6 rounded-lg flex items-center justify-center shrink-0 ${
+              active ? 'bg-indigo-600 text-white' : 'bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600'
+            }">
+              ${active ? '<i class="fa-solid fa-check text-xs"></i>' : ''}
+            </span>
+          </button>
+        `;
+      }).join('');
+
+      // Compute Breakdown
+      let counts = { umbilical: 0, blind: 0, healthy: 0 };
+      selectedRelTraits.forEach(idx => {
+        const cat = relationshipTraitsList[idx].category;
+        counts[cat]++;
+      });
+
+      let diagnosisText = '';
+      if (counts.umbilical > 0 && counts.umbilical >= counts.healthy) {
+        diagnosisText = currentLang === 'ar'
+          ? '⚠️ تنبيه: تظهر في هذه العلاقة علامات «علاقة الحبل السري» الاعتمادية [00:04:24]. استعد تنفسك النفسي المستقل ولا تربط قيمتك بتقلبات الطرف الآخر.'
+          : '⚠️ Alert: This bond shows strong signs of "Umbilical Cord Dependency" [00:04:24]. Reclaim your emotional oxygen and detach your self-worth from their mood.';
+      } else if (counts.blind > 0 && counts.blind >= counts.healthy) {
+        diagnosisText = currentLang === 'ar'
+          ? '⚠️ تنبيه: تظهر في هذه العلاقة علامات «علاقة العمى والإسقاط» [00:04:48]. افتح عينيك لترى الواقع الفعلي للشخص وليس الصورة الخيالية في ذهنك.'
+          : '⚠️ Alert: This bond shows signs of "Blind Projection" [00:04:48]. Open your eyes to the person’s actual behavior rather than the fantasy image in your head.';
+      } else if (counts.healthy > 0) {
+        diagnosisText = currentLang === 'ar'
+          ? '✅ مؤشر صحي: هذه العلاقة تحمل سمات «القبول غير المشروط» [00:06:37] حيث تُرى وتُقدَّر وتُقبل بنفسك الحقيقية.'
+          : '✅ Healthy Indicator: This relationship reflects "Unconditional Acceptance" [00:06:37], where your True Self is seen, appreciated, and respected.';
+      } else {
+        diagnosisText = currentLang === 'ar'
+          ? 'اختر عبارة واحدة أو أكثر من الأعلى لتحليل نمط العلاقة فوراً.'
+          : 'Select one or more statements above to analyze the relationship pattern immediately.';
+      }
+
+      output.innerHTML = `
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div class="text-sm font-bold text-slate-800 dark:text-slate-100 leading-relaxed">
+            ${diagnosisText}
+          </div>
+          <div class="flex items-center gap-2 shrink-0 text-xs font-bold">
+            <span class="px-2.5 py-1 rounded-lg bg-rose-500/15 text-rose-600 dark:text-rose-400">
+              ${currentLang === 'ar' ? 'الحبل السري:' : 'Umbilical:'} ${counts.umbilical}/2
+            </span>
+            <span class="px-2.5 py-1 rounded-lg bg-amber-500/15 text-amber-600 dark:text-amber-400">
+              ${currentLang === 'ar' ? 'العمى:' : 'Blind:'} ${counts.blind}/2
+            </span>
+            <span class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400">
+              ${currentLang === 'ar' ? 'قبول صحي:' : 'Healthy:'} ${counts.healthy}/2
+            </span>
+          </div>
+        </div>
+      `;
+    }
+
+    // ==========================================
+    // SECTION 6: 3 PRACTICAL STEPS CHECKLIST
+    // ==========================================
+    function togglePracticalStep(idx) {
+      completedSteps[idx] = !completedSteps[idx];
+      localStorage.setItem('outOfScript_steps', JSON.stringify(completedSteps));
+      renderPracticalSteps();
+    }
+
+    function renderPracticalSteps() {
+      const container = document.getElementById('stepsChecklistContainer');
+      container.innerHTML = practicalStepsData.map((step, idx) => {
+        const sc = step[currentLang];
+        const done = completedSteps[idx];
+        return `
+          <div onclick="togglePracticalStep(${idx})" 
+            class="cursor-pointer p-5 sm:p-6 rounded-3xl border transition-all flex items-start sm:items-center justify-between gap-4 ${
+              done 
+                ? 'bg-emerald-50/90 dark:bg-emerald-950/40 border-emerald-400 dark:border-emerald-700 shadow-sm' 
+                : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 hover:border-indigo-400'
+            }">
+            <div class="flex items-start sm:items-center gap-4">
+              <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-lg shrink-0 ${
+                done ? 'bg-emerald-500 text-white' : 'bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400'
+              }">
+                <i class="fa-solid ${done ? 'fa-check' : step.icon}"></i>
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <h3 class="font-extrabold text-base sm:text-lg ${done ? 'line-through text-emerald-800 dark:text-emerald-300' : 'text-slate-900 dark:text-white'}">
+                    ${sc.title}
+                  </h3>
+                  <span class="font-mono text-xs text-slate-400">[${step.time}]</span>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
+                  ${sc.desc}
+                </p>
+              </div>
+            </div>
+
+            <div class="px-3 py-1.5 rounded-xl text-xs font-bold shrink-0 ${
+              done 
+                ? 'bg-emerald-600 text-white' 
+                : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
+            }">
+              ${done ? (currentLang === 'ar' ? 'تم الالتزام ✓' : 'Committed ✓') : (currentLang === 'ar' ? 'اضغط للتفعيل' : 'Click to Commit')}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Initialize on Window Load
+    window.onload = initApp;
+  </script>
+</body>
+</html>
